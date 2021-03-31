@@ -29,7 +29,6 @@ import net.davidbrowne.furyofrome.Tools.FixedOrthogonalTiledMapRenderer;
 import net.davidbrowne.furyofrome.Tools.WorldContactListener;
 import net.davidbrowne.furyofrome.Scenes.Hud;
 
-import java.util.Iterator;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class PlayScreen implements Screen {
@@ -151,6 +150,9 @@ public class PlayScreen implements Screen {
             player.b2body.setLinearVelocity(new Vector2(-1f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(false);
         }
+        else if (Gdx.input.isKeyJustPressed(Input.Keys.H)){
+            hud.flipVisibilityDialogWindow();
+        }
 
     }
 
@@ -244,6 +246,7 @@ public class PlayScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         gamePort.update(width,height);
+        hud.getViewport().update(width,height);
     }
 
     @Override

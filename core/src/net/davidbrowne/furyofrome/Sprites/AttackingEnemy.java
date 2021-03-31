@@ -106,6 +106,7 @@ public class AttackingEnemy extends Enemy {
                 | Game.PLAYER_BIT
                 | Game.GROUND_BIT
                 | Game.BRICK_BIT
+                | Game.BLOCK_BIT
                 | Game.ITEM_BIT
                 | Game.BOX_BIT
                 | Game.ATTACK_BIT

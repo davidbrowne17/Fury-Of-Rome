@@ -81,6 +81,7 @@ public class WorldContactListener implements ContactListener {
                 else
                     ((Enemy)(fixB.getUserData())).hitOnHead();
                 break;
+            case Game.ENEMY_BIT | Game.BLOCK_BIT:
             case Game.ENEMY_BIT | Game.BOX_BIT:
             case Game.ENEMY_BIT | Game.BRICK_BIT:
                 if(fixA.getFilterData().categoryBits==Game.ENEMY_BIT)

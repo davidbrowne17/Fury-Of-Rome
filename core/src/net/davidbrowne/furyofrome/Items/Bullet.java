@@ -1,15 +1,12 @@
 package net.davidbrowne.furyofrome.Items;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Timer;
-
 import net.davidbrowne.furyofrome.Game;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
 import net.davidbrowne.furyofrome.Sprites.Player;

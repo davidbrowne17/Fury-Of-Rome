@@ -236,10 +236,6 @@ public class Player extends Sprite {
     }
 
     public Fixture createBlock(){
-        if(!isFlipX())
-            b2body.applyLinearImpulse(new Vector2(1.0f,0f),b2body.getWorldCenter(),true);
-        else
-            b2body.applyLinearImpulse(new Vector2(-1.0f,0f),b2body.getWorldCenter(),true);
         b2body.setAwake(true);
         //create line for head collision detection
         EdgeShape head = new EdgeShape();
