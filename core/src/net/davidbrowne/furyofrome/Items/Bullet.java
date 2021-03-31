@@ -14,13 +14,10 @@ import net.davidbrowne.furyofrome.Game;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
 import net.davidbrowne.furyofrome.Sprites.Player;
 
-
 public class Bullet extends Item {
     private Array<TextureRegion> frames;
     private Animation<TextureRegion> fireAnimation;
     private float stateTime;
-    private boolean destroyed;
-    private boolean setToDestroy;
     private boolean fireRight;
     public Bullet(PlayScreen screen, float x, float y, boolean fireRight){
         super(screen, x, y);
@@ -34,26 +31,25 @@ public class Bullet extends Item {
 
     @Override
     public void defineItem() {
-        if(!screen.getWorld().isLocked()) {
-            BodyDef bdef = new BodyDef();
-            bdef.position.set(fireRight ? getX() + 0.1f / Game.PPM : getX() - 0.1f / Game.PPM, getY());
-            bdef.type = BodyDef.BodyType.DynamicBody;
+        BodyDef bdef = new BodyDef();
+        bdef.position.set(fireRight ? getX() + 0.1f / Game.PPM : getX() - 0.1f / Game.PPM, getY());
+        bdef.type = BodyDef.BodyType.DynamicBody;
+        if(!screen.getWorld().isLocked())
             body = world.createBody(bdef);
-            FixtureDef fdef = new FixtureDef();
-            CircleShape shape = new CircleShape();
-            shape.setRadius(5 / Game.PPM);
-            fdef.filter.categoryBits = Game.BULLET_BIT;
-            fdef.filter.maskBits = Game.GROUND_BIT |
-                    Game.BRICK_BIT |
-                    Game.ENEMY_BIT |
-                    Game.BOX_BIT;
-            fdef.shape = shape;
-            fdef.restitution = 0f;
-            fdef.friction = 0f;
-            body.createFixture(fdef).setUserData(this);
-            body.setGravityScale(0);
-            shape.dispose();
-        }
+        FixtureDef fdef = new FixtureDef();
+        CircleShape shape = new CircleShape();
+        shape.setRadius(5 / Game.PPM);
+        fdef.filter.categoryBits = Game.BULLET_BIT;
+        fdef.filter.maskBits = Game.GROUND_BIT |
+                Game.BRICK_BIT |
+                Game.ENEMY_BIT |
+                Game.BOX_BIT;
+        fdef.shape = shape;
+        fdef.restitution = 0f;
+        fdef.friction = 0f;
+        body.createFixture(fdef).setUserData(this);
+        body.setGravityScale(0);
+        shape.dispose();
     }
 
     @Override
@@ -63,43 +59,32 @@ public class Bullet extends Item {
 
     @Override
     public void update(float dt){
-        super.update(dt);
         if(!destroyed){
-        stateTime += dt;
-        setRegion(fireAnimation.getKeyFrame(stateTime, true));
-        if(body!=null){
-        setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
-        if(!fireRight)
-            body.setLinearVelocity(new Vector2(2.3f, 0f));
-        else
-            body.setLinearVelocity(new Vector2(-2.3f, 0f));
+            stateTime += dt;
+            setRegion(fireAnimation.getKeyFrame(stateTime, true));
+            if(body!=null){
+                setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
+                if(!fireRight)
+                    body.setLinearVelocity(new Vector2(2.3f, 0f));
+                else
+                    body.setLinearVelocity(new Vector2(-2.3f, 0f));
 
-        if( fireRight&& !isFlipX()){
-            flip(true, false);
-        }
-        else if(!fireRight &&isFlipX()){
-            flip(true, false);
-        }
-        }
-        if(stateTime > 1f||(setToDestroy) && !destroyed) {
+                if( fireRight&& !isFlipX()){
+                    flip(true, false);
+                }
+                else if(!fireRight &&isFlipX()){
+                    flip(true, false);
+                }
+            }
+            if(stateTime > 1f||(toDestroy) && !destroyed) {
+                removeBodySafely(body);
+                destroyed=true;
+                screen.getPlayer().setCanFire(true);
 
-            destroyed = true;
-            screen.getPlayer().setCanFire(true);
-        }
+            }
+
         }
 
     }
-    public void draw(Batch batch){
-       if(!destroyed){
-           super.draw(batch);
-       }
-    }
 
-    public void setToDestroy(){
-        setToDestroy = true;
-    }
-
-    public boolean isDestroyed(){
-        return destroyed;
-    }
 }

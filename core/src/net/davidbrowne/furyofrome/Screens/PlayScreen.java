@@ -28,6 +28,8 @@ import net.davidbrowne.furyofrome.Tools.Controller;
 import net.davidbrowne.furyofrome.Tools.FixedOrthogonalTiledMapRenderer;
 import net.davidbrowne.furyofrome.Tools.WorldContactListener;
 import net.davidbrowne.furyofrome.Scenes.Hud;
+
+import java.util.Iterator;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class PlayScreen implements Screen {
@@ -87,6 +89,7 @@ public class PlayScreen implements Screen {
         game.resetInputProcessor();
 
     }
+
     public void setPlayer(Player player){
         this.player=player;
     }
@@ -97,17 +100,16 @@ public class PlayScreen implements Screen {
     public void spawnItem(ItemDef idef){
         itemsToSpawn.add(idef);
     }
+
     private void stepWorld() {
         float delta = Gdx.graphics.getDeltaTime();
-
         accumulator += Math.min(delta, 0.25f);
-
         if (accumulator >= STEP_TIME) {
             accumulator -= STEP_TIME;
-
             world.step(STEP_TIME, 6, 2);
         }
     }
+
     public Game getGame() {
         return game;
     }
@@ -135,7 +137,7 @@ public class PlayScreen implements Screen {
         else if((controller.getaPressed() || Gdx.input.isKeyJustPressed(Input.Keys.F)) && !player.isBlocking()){
             player.block();
         }
-        else if ((controller.getbPressed()|| Gdx.input.isKeyJustPressed(Input.Keys.E)) && !player.isAttacking()){
+        else if ((controller.getbPressed()|| Gdx.input.isKeyJustPressed(Input.Keys.E)) && ((!player.isAttacking())&&(player.isCanFire()))){
             player.fire();
         }
         else if((Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || controller.getUpPressed() )&&player.b2body.getLinearVelocity().y==0){
@@ -157,10 +159,10 @@ public class PlayScreen implements Screen {
         stepWorld();
         handleInput(dt);
         handleSpawningItems();
+        for(int i=0;i<items.size;i++)
+            items.get(i).update(dt);
         for (Enemy enemy : creator.getEnemies())
             enemy.update(dt);
-        for(Item item : items)
-            item.update(dt);
         player.update(dt);
         hud.update(dt);
         gamecam.update();

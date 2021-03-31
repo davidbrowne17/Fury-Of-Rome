@@ -36,6 +36,7 @@ public class Player extends Sprite {
     private int gold =0;
     private Fixture fix;
     private FixtureDef attackdef = new FixtureDef();
+    private Timer timer = new Timer();
     public Player(PlayScreen screen,int spawnX,int spawnY){
         super(screen.getAtlas().findRegion("warrior"));
         this.screen=screen;
@@ -104,7 +105,6 @@ public class Player extends Sprite {
     public void attack(){
         if(!attacking&& currentState!=State.DEAD) {
             attacking = true;
-            Timer timer = new Timer();
             currentState = State.ATTACKING;
             Timer.Task task = timer.scheduleTask(new Timer.Task() {
                 @Override
@@ -128,14 +128,6 @@ public class Player extends Sprite {
         }
     }
 
-    public boolean isCanFire() {
-        return canFire;
-    }
-
-    public void setCanFire(boolean canFire) {
-        this.canFire = canFire;
-    }
-
     public void setAttacking(boolean attacking) {
         this.attacking = attacking;
     }
@@ -150,12 +142,19 @@ public class Player extends Sprite {
         if(canFire) {
             if (spears > 0) {
                 canFire=false;
-                screen.spawnItem(new ItemDef(new Vector2(b2body.getPosition().x + (!isFlipX() ? -1 / Game.PPM : -1 / Game.PPM), b2body.getPosition().y + (!isFlipX() ? 1 / Game.PPM : 1 / Game.PPM)), net.davidbrowne.furyofrome.Items.Bullet.class));
+                screen.spawnItem(new ItemDef(new Vector2(b2body.getPosition().x + (!isFlipX() ? -1f / Game.PPM : -1f / Game.PPM), b2body.getPosition().y + (!isFlipX() ? 1f / Game.PPM : 1f / Game.PPM)), net.davidbrowne.furyofrome.Items.Bullet.class));
                 spears--;
             }
         }
     }
 
+    public boolean isCanFire() {
+        return canFire;
+    }
+
+    public void setCanFire(boolean canFire) {
+        this.canFire = canFire;
+    }
 
     public TextureRegion getFrame(float dt){
         currentState = getState();
