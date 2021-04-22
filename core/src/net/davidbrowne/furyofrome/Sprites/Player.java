@@ -20,6 +20,7 @@ import net.davidbrowne.furyofrome.Screens.PlayScreen;
 
 
 public class Player extends Sprite {
+
     public enum State {FALLING,JUMPING,RUNNING,STANDING,ATTACKING,DEAD,BLOCKING}
     public State currentState,previousState;
     public World world;
@@ -28,11 +29,12 @@ public class Player extends Sprite {
     private Animation<TextureRegion> playerRun,playerJump,playerStand,playerAttack,playerBlock;
     private float stateTimer;
     private Boolean runningRight;
+    private int level=1;
     private boolean isDead=false;
     private PlayScreen screen;
     private int spears =100;
     private int spawnX,spawnY;
-    private boolean attacking=false,canFire=true,firing=false,blocking=false;
+    private boolean attacking=false,canFire=true,firing=false,blocking=false,interacting=false;
     private int gold =0;
     private Fixture fix;
     private FixtureDef attackdef = new FixtureDef();
@@ -74,11 +76,19 @@ public class Player extends Sprite {
         setRegion(playerStanding);
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public Player() {
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public void jump(){
-        b2body.setLinearVelocity(new Vector2(b2body.getLinearVelocity().x,4f));
+        b2body.setLinearVelocity(new Vector2(b2body.getLinearVelocity().x, 3f));
         currentState = State.JUMPING;
     }
 
@@ -227,6 +237,7 @@ public class Player extends Sprite {
         attackdef.density=1;
         attackdef.filter.categoryBits = Game.ATTACK_BIT;
         attackdef.filter.maskBits = Game.ENEMY_BIT |
+                        Game.NPC_BIT |
                         Game.BOX_BIT;
         Fixture fix1 = b2body.createFixture(attackdef);
         fix1.setUserData("attack");
@@ -302,6 +313,47 @@ public class Player extends Sprite {
         b2body.createFixture(fdef);
 
     }
+
+    public Fixture createInteract(){
+        b2body.setAwake(true);
+        //create line for head collision detection
+        EdgeShape head = new EdgeShape();
+        if(!isFlipX())
+            head.set(new Vector2(-3/Game.PPM,0 / Game.PPM),new Vector2(9/Game.PPM,0 / Game.PPM));
+        else
+            head.set(new Vector2(-9/Game.PPM,0 / Game.PPM),new Vector2(-3/Game.PPM,0 / Game.PPM));
+        attackdef.shape = head;
+        attackdef.isSensor = false;
+        attackdef.density=1;
+        attackdef.filter.categoryBits = Game.INTERACT_BIT;
+        attackdef.filter.maskBits = Game.NPC_BIT;
+        attackdef.isSensor=true;
+        Fixture fix1 = b2body.createFixture(attackdef);
+        fix1.setUserData("interact");
+        //screen.getManager().get("audio/sounds/swing.mp3", Sound.class).play(screen.getGame().getVolume());
+        head.dispose();
+        return fix1;
+    }
+
+    public void interact(){
+        if(currentState!=State.DEAD) {
+            fix = createInteract();
+            interacting=true;
+            if (interacting == true) {
+                Timer.Task task1 = timer.scheduleTask(new Timer.Task() {
+                    @Override
+                    public void run() {
+
+                        while (b2body.getFixtureList().size > 1) {
+                            b2body.destroyFixture(b2body.getFixtureList().pop());
+                        }
+                        interacting = false;
+                    }
+                }, 0.1f);
+            }
+        }
+    }
+
 
     public int getSpears() {
         return spears;

@@ -71,7 +71,7 @@ public class PlayScreen implements Screen {
         renderer = new FixedOrthogonalTiledMapRenderer(map,1/ Game.PPM);
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2,0);
         //create  Box2D world setting no gravity in X -80 gravity in Y and allow bodies to sleep
-        world = new World(new Vector2(0,-20),true);
+        world = new World(new Vector2(0,-12),true);
         //box2D
         b2dr = new Box2DDebugRenderer();
         creator =new B2WorldCreator(this);
@@ -87,6 +87,10 @@ public class PlayScreen implements Screen {
         itemsToSpawn = new LinkedBlockingQueue<ItemDef>();
         game.resetInputProcessor();
 
+    }
+
+    public Hud getHud() {
+        return hud;
     }
 
     public void setPlayer(Player player){
@@ -142,16 +146,16 @@ public class PlayScreen implements Screen {
         else if((Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || controller.getUpPressed() )&&player.b2body.getLinearVelocity().y==0){
             player.jump();
         }
-        else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed()) && !player.isAttacking()){
+        else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed()) && !player.isAttacking() &&(player.b2body.getLinearVelocity().y==0)){
             player.b2body.setLinearVelocity(new Vector2(1f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(true);
         }
-        else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2 && !player.isAttacking()){
+        else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2 && !player.isAttacking()&&(player.b2body.getLinearVelocity().y==0)){
             player.b2body.setLinearVelocity(new Vector2(-1f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(false);
         }
-        else if (Gdx.input.isKeyJustPressed(Input.Keys.H)){
-            hud.flipVisibilityDialogWindow();
+        else if (Gdx.input.isKeyJustPressed(Input.Keys.T)){
+            player.interact();
         }
 
     }
@@ -188,7 +192,7 @@ public class PlayScreen implements Screen {
             renderer.render();
             for (Enemy enemy : creator.getEnemies()) {
                 enemy.draw(game.batch);
-                if (enemy.getX() < player.getX() + 164 / Game.PPM && !enemy.b2body.isActive())
+                if (enemy.getX() < player.getX() + 230 / Game.PPM && !enemy.b2body.isActive())
                     enemy.b2body.setActive(true);
             }
             for (Item item : items)
@@ -198,7 +202,7 @@ public class PlayScreen implements Screen {
             hud.stage.draw();
             controller.draw();
             //b2d debug lines
-            //b2dr.render(world, gamecam.combined);
+            b2dr.render(world, gamecam.combined);
             System.out.println("Y "+player.b2body.getPosition().y);
             if (player.b2body.getPosition().y < 0 - (player.getFrame(delta).getTexture().getHeight() / Game.PPM) / 2) {
                 float delay = 0.02f; // seconds

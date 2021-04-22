@@ -1,68 +1,96 @@
 tiles.png
-size: 144, 16
+size: 224, 16
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-marble
+tile-0001
   rotate: false
   xy: 0, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-plant
+tile-0002
   rotate: false
   xy: 16, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-romanpillar
+tile-0003
   rotate: false
   xy: 32, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-stonefloor
+tile-0004
   rotate: false
   xy: 48, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-water0
+tile-0005
   rotate: false
   xy: 64, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-water1
+tile-0006
   rotate: false
   xy: 80, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-water2
+tile-0007
   rotate: false
   xy: 96, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-water3
+tile-0008
   rotate: false
   xy: 112, 0
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-wood
+tile-0009
   rotate: false
   xy: 128, 0
   size: 16, 16
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0010
+  rotate: false
+  xy: 144, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0011
+  rotate: false
+  xy: 160, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0012
+  rotate: false
+  xy: 176, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0013
+  rotate: false
+  xy: 192, 0
+  size: 32, 16
+  orig: 32, 16
   offset: 0, 0
   index: -1

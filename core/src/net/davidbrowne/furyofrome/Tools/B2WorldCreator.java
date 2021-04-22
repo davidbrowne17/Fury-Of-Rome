@@ -17,11 +17,13 @@ import net.davidbrowne.furyofrome.Sprites.AttackingEnemy;
 import net.davidbrowne.furyofrome.Sprites.Box;
 import net.davidbrowne.furyofrome.Sprites.Brick;
 import net.davidbrowne.furyofrome.Sprites.Enemy;
+import net.davidbrowne.furyofrome.Sprites.FriendlyNPC;
 import net.davidbrowne.furyofrome.Sprites.Player;
 
 public class B2WorldCreator {
     private Array<Enemy> enemies;
     private Array<AttackingEnemy> attackingEnemies;
+    private Array<FriendlyNPC>friendlyNPC;
     private PlayScreen screen;
 
     public B2WorldCreator(PlayScreen screen){
@@ -60,11 +62,17 @@ public class B2WorldCreator {
             Player player = new Player(screen,(int)rect.getX(),(int)rect.getY());
             screen.setPlayer(player);
         }
-        //spawn npc1
+        //spawn enemy
         attackingEnemies = new Array<AttackingEnemy>();
         for(MapObject object : map.getLayers().get(7).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
-            attackingEnemies.add(new AttackingEnemy(screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM,1));
+            attackingEnemies.add(new AttackingEnemy(screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM,object));
+        }
+        //spawn npc
+        friendlyNPC = new Array<FriendlyNPC >();
+        for(MapObject object : map.getLayers().get(8).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            friendlyNPC.add(new FriendlyNPC (screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM,object));
         }
 
 
@@ -73,6 +81,7 @@ public class B2WorldCreator {
     public Array<Enemy> getEnemies() {
         if(enemies.isEmpty()){
             enemies.addAll(attackingEnemies);
+            enemies.addAll(friendlyNPC);
         }
         return enemies;
     }

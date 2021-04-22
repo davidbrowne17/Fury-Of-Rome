@@ -11,11 +11,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import net.davidbrowne.furyofrome.Events.EventLoader;
 import net.davidbrowne.furyofrome.Models.Script;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
 
@@ -44,8 +45,10 @@ public class Hud implements Disposable {
     private Image logoImg;
     private int scriptId=1;
     private String testString;
+    private EventLoader eventLoader;
     public Hud(SpriteBatch sb, PlayScreen screen){
         this.screen=screen;
+        eventLoader = new EventLoader();
         prefs = Gdx.app.getPreferences("RomeGamePrefs");
         score = prefs.getInteger("score");
         mySkin = new Skin(Gdx.files.internal("skin/pixthulhu-ui.json"));
@@ -84,6 +87,13 @@ public class Hud implements Disposable {
         else
             window.setVisible(true);
     }
+
+    public void loadScript(int scriptId){
+        this.scriptId=scriptId;
+        dialogLoading();
+    }
+
+
     public void dialogLoading(){
         scripts = new ArrayList<Script>();
         for(int i=0;i<scriptList.size();i++){
@@ -102,6 +112,17 @@ public class Hud implements Disposable {
         }
     }
 
+    public void textUpdate(){
+        text.setText(String.format(testString));
+        logoImg.setDrawable(new TextureRegionDrawable(logo));
+        if (tempIterator < scriptIterator) {
+            if(!finished)
+                tempIterator++;
+        }
+        updateDialog();
+
+    }
+
     public Viewport getViewport() {
         return viewport;
     }
@@ -110,10 +131,40 @@ public class Hud implements Disposable {
         spikeLabel.setText(String.format("Spears: %03d", screen.getPlayer().getSpears()));
         scoreLabel.setText(String.format("Gold: %04d", screen.getPlayer().getGold()));
         text.setText(testString);
+        if(!finished) {
+            updateDialog();
+            if (next) {
+                textUpdate();
+                next = false;
+            }
+        }
+        if(window.isVisible()&&finished){
+            flipVisibilityDialogWindow();
+            for(int i=0;i<eventLoader.getEvents().size();i++){
+                if(eventLoader.getEvents().get(i).getEventId()==scriptId){
+                    eventLoader.getEvents().get(i).run(screen);
+                }
+            }
+        }
     }
 
     @Override
     public void dispose() {
         stage.dispose();
+    }
+
+    public void updateDialogWindow(int scriptId) {
+        if(!window.isVisible()){
+            finished=false;
+            tempIterator=0;
+            loadScript(scriptId);
+            updateDialog();
+            flipVisibilityDialogWindow();
+        }else{
+            next=true;
+        }
+
+
+
     }
 }
