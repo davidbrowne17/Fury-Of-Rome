@@ -1,131 +1,187 @@
 
 playerandenemies.png
-size: 64,128
+size: 512,32
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+demon
+  rotate: false
+  xy: 291, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+demon_1
+  rotate: false
+  xy: 129, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+fireball
+  rotate: false
+  xy: 363, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+fireball2
+  rotate: false
+  xy: 219, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+fireball3
+  rotate: false
+  xy: 237, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+flyingdemon
+  rotate: false
+  xy: 417, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+flyingdemon1
+  rotate: false
+  xy: 471, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+flyingdemon3
+  rotate: false
+  xy: 381, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
 npc1
   rotate: false
-  xy: 20, 2
+  xy: 309, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1_dead_1
   rotate: false
-  xy: 24, 74
+  xy: 147, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1_dead_2
   rotate: false
-  xy: 2, 38
+  xy: 165, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1_dead_3
   rotate: false
-  xy: 20, 56
+  xy: 183, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1_walk_1
   rotate: false
-  xy: 20, 38
+  xy: 273, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1_walk_2
   rotate: false
-  xy: 20, 20
+  xy: 399, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc2
   rotate: false
-  xy: 42, 92
+  xy: 327, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc3
   rotate: false
-  xy: 42, 74
+  xy: 345, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 spear
   rotate: false
-  xy: 2, 20
+  xy: 201, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior
   rotate: false
-  xy: 2, 56
+  xy: 111, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_attack_1
   rotate: false
-  xy: 2, 92
+  xy: 27, 2
   size: 20, 16
   orig: 20, 16
   offset: 0, 0
   index: -1
 warrior_attack_2
   rotate: false
-  xy: 27, 110
+  xy: 49, 2
   size: 20, 16
   orig: 20, 16
   offset: 0, 0
   index: -1
 warrior_attack_3
   rotate: false
-  xy: 2, 110
+  xy: 2, 2
   size: 23, 16
   orig: 23, 16
   offset: 0, 0
   index: -1
 warrior_block_1
   rotate: false
-  xy: 2, 74
+  xy: 71, 2
   size: 20, 16
   orig: 20, 16
   offset: 0, 0
   index: -1
 warrior_jump_1
   rotate: false
-  xy: 38, 56
+  xy: 435, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_jump_2
   rotate: false
-  xy: 38, 38
+  xy: 453, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_walk_1
   rotate: false
-  xy: 24, 92
+  xy: 93, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_walk_2
   rotate: false
-  xy: 2, 2
+  xy: 255, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

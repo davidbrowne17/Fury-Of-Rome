@@ -24,11 +24,13 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 	public static final short ENEMY_BIT = 64;
 	public static final short BULLET_BIT = 128;
 	public static final short ITEM_BIT = 256;
-	public static final short BLOCK_BIT = 256*2;
-	public static final short NPC_BIT = 256*4;
-	public static final short INTERACT_BIT = 256*8;
-	public static final short LEVEL_END_BIT = 256*16;
-	public static final short COIN_BIT = 256*32;
+	public static final short BLOCK_BIT = 512;
+	public static final short NPC_BIT = 1024;
+	public static final short INTERACT_BIT = 2048;
+	public static final short LEVEL_END_BIT = 4096;
+	public static final short COIN_BIT = 8192;
+	public static final short SPEAR_BIT = 16384;
+	public static final short SPIKE_BIT = (short) 32768;
 	private GestureDetector gestureDetector;
 	private float volume= 0.5f;
 	private float soundVolume=0.5f;

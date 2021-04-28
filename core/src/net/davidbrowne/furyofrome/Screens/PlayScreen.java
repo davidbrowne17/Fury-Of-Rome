@@ -232,7 +232,7 @@ public class PlayScreen implements Screen {
             hud.stage.draw();
             controller.draw();
             //b2d debug lines
-            //b2dr.render(world, gamecam.combined);
+            b2dr.render(world, gamecam.combined);
             System.out.println("Y "+player.b2body.getPosition().y);
             if (player.b2body.getPosition().y < 0 - (player.getFrame(delta).getTexture().getHeight() / Game.PPM) / 2) {
                 float delay = 0.02f; // seconds

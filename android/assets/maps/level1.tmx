@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="26">
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="26">
  <tileset firstgid="1" source="tiles.tsx"/>
  <layer id="1" name="background" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt06ERACAQA8Fo1PdfLQ0gEGEwK7aAEzdJBgAAAAAAAAAAAAAAuLbKfvdAkz/grP2GRwCAVzaoIfiN
+   eJzt06ERACAQA8FoxPdfLg0gEGEwK7aAEzdJBgAAAAAAAAAAAAAAuLbKfvdAkz/grP2GRwCAVzY8hNnJ
   </data>
  </layer>
  <layer id="2" name="graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1UsKgzAUQNHYkdIqdNDv/hfSpfmGDiKk1pgOzoELQYgkojElAAAAAAAAAADgFt1bLwIO8IreX855RM8Ka4HanO2wrvRsH3YuZ8u/CVpbe5//7Z7Qgu8DypwX48tiPEZT5npuXqnrhjlQ6qTd6lL66Nj6eO41a70/6Zdma2HOgA==
+   eJzt1UsKgzAUQNHYkdKCA/vf/0K6NN/QQYTUGtPBOXAhCJFENKYEAAAAAAAAAADconvrRcABXtH7yzmP6FlhLVCbsx3WlZ7tw87lbPk3QWtr7/O/3RNa8H1AmfNifFmMp+iauZ6bV2rcMAdKnbRbXUofHVsfz71mrfcn/dIMwbnOig==
   </data>
  </layer>
  <layer id="3" name="object" width="200" height="20">
@@ -51,4 +51,8 @@
   <object id="24" x="1152" y="272" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="11" name="Coin"/>
+ <objectgroup id="12" name="Spears"/>
+ <objectgroup id="13" name="Spike"/>
+ <objectgroup id="14" name="fireball"/>
+ <objectgroup id="15" name="flying enemy"/>
 </map>

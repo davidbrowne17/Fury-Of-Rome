@@ -32,7 +32,7 @@ public class Player extends Sprite {
     private int level=1;
     private boolean isDead=false;
     private PlayScreen screen;
-    private int spears =100;
+    private int spears =0;
     private int spawnX,spawnY;
     private boolean attacking=false,canFire=true,firing=false,blocking=false,interacting=false;
     private int gold =0;
@@ -229,9 +229,9 @@ public class Player extends Sprite {
         //create line for head collision detection
         EdgeShape head = new EdgeShape();
         if(!isFlipX())
-            head.set(new Vector2(-3/Game.PPM,0 / Game.PPM),new Vector2(9/Game.PPM,0 / Game.PPM));
+            head.set(new Vector2(-3/Game.PPM,-9 / Game.PPM),new Vector2(9/Game.PPM,7 / Game.PPM));
         else
-            head.set(new Vector2(-9/Game.PPM,0 / Game.PPM),new Vector2(-3/Game.PPM,0 / Game.PPM));
+            head.set(new Vector2(-9/Game.PPM,9 / Game.PPM),new Vector2(-3/Game.PPM,-7 / Game.PPM));
         attackdef.shape = head;
         attackdef.isSensor = false;
         attackdef.density=1;
@@ -308,6 +308,8 @@ public class Player extends Sprite {
                 | Game.BRICK_BIT
                 | Game.BOX_BIT
                 | Game.COIN_BIT
+                | Game.SPEAR_BIT
+                | Game.SPIKE_BIT
                 | Game.LEVEL_END_BIT
                 | Game.ENEMY_BIT;
         fdef.shape = shape;

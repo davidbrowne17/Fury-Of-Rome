@@ -18,14 +18,20 @@ import net.davidbrowne.furyofrome.Sprites.Box;
 import net.davidbrowne.furyofrome.Sprites.Brick;
 import net.davidbrowne.furyofrome.Sprites.Coin;
 import net.davidbrowne.furyofrome.Sprites.Enemy;
+import net.davidbrowne.furyofrome.Sprites.Fireball;
+import net.davidbrowne.furyofrome.Sprites.FlyingEnemy;
 import net.davidbrowne.furyofrome.Sprites.FriendlyNPC;
 import net.davidbrowne.furyofrome.Sprites.LevelEnd;
 import net.davidbrowne.furyofrome.Sprites.Player;
+import net.davidbrowne.furyofrome.Sprites.Spear;
+import net.davidbrowne.furyofrome.Sprites.Spike;
 
 public class B2WorldCreator {
     private Array<Enemy> enemies;
     private Array<AttackingEnemy> attackingEnemies;
     private Array<FriendlyNPC>friendlyNPC;
+    private Array<Fireball> fireballs;
+    private Array<FlyingEnemy> flyingEnemy;
     private PlayScreen screen;
 
     public B2WorldCreator(PlayScreen screen){
@@ -86,6 +92,28 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
             new Coin(screen,object,manager);
         }
+        //spears
+        for(MapObject object : screen.getMap().getLayers().get(11).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            new Spear(screen,object,manager);
+        }
+        //spike
+        for(MapObject object : screen.getMap().getLayers().get(12).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            new Spike(screen,object,manager);
+        }
+        //Fireballs
+        fireballs = new Array<Fireball>();
+        for(MapObject object : map.getLayers().get(13).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            fireballs.add(new Fireball(screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM));
+        }
+        //Flying enemy
+        flyingEnemy = new Array<FlyingEnemy>();
+        for(MapObject object : map.getLayers().get(14).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            flyingEnemy.add(new FlyingEnemy(screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM));
+        }
 
 
     }
@@ -93,6 +121,8 @@ public class B2WorldCreator {
         if(enemies.isEmpty()){
             enemies.addAll(attackingEnemies);
             enemies.addAll(friendlyNPC);
+            enemies.addAll(fireballs);
+            enemies.addAll(flyingEnemy);
         }
         return enemies;
     }

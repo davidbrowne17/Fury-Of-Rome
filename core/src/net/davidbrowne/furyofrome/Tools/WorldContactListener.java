@@ -13,6 +13,8 @@ import net.davidbrowne.furyofrome.Sprites.Enemy;
 import net.davidbrowne.furyofrome.Sprites.InteractiveTileObject;
 import net.davidbrowne.furyofrome.Sprites.LevelEnd;
 import net.davidbrowne.furyofrome.Sprites.Player;
+import net.davidbrowne.furyofrome.Sprites.Spear;
+import net.davidbrowne.furyofrome.Sprites.Spike;
 
 
 public class WorldContactListener implements ContactListener {
@@ -86,6 +88,22 @@ public class WorldContactListener implements ContactListener {
                         ((Box)(fixA.getUserData())).onHit();
                     else
                         ((Box)(fixB.getUserData())).onHit();
+                }
+                break;
+            case Game.SPEAR_BIT | Game.PLAYER_BIT:
+                if(fixA.getUserData()!= "head"&&fixB.getUserData()!= "head"){
+                    if(fixA.getFilterData().categoryBits==Game.SPEAR_BIT)
+                        ((Spear)(fixA.getUserData())).onHit();
+                    else
+                        ((Spear)(fixB.getUserData())).onHit();
+                }
+                break;
+            case Game.SPIKE_BIT | Game.PLAYER_BIT:
+                if(fixA.getUserData()!= "head"&&fixB.getUserData()!= "head"){
+                    if(fixA.getFilterData().categoryBits==Game.SPIKE_BIT)
+                        ((Spike)(fixA.getUserData())).onHit();
+                    else
+                        ((Spike)(fixB.getUserData())).onHit();
                 }
                 break;
 

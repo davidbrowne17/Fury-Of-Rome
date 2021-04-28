@@ -198,6 +198,7 @@
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0016.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0017.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0018.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0021.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -266,6 +267,7 @@
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0017.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0018.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0019.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0021.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
