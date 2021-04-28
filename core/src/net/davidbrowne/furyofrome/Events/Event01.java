@@ -10,6 +10,9 @@ public class Event01 extends Event {
 
     @Override
     public void run(PlayScreen screen) {
-        screen.getPlayer().setLevel(screen.getPlayer().getLevel()+1);
+        /*
+        RUN EVENT HERE
+
+         */
     }
 }

@@ -19,6 +19,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import net.davidbrowne.furyofrome.Events.EventLoader;
 import net.davidbrowne.furyofrome.Models.Script;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
+import net.davidbrowne.furyofrome.Sprites.FriendlyNPC;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,7 @@ public class Hud implements Disposable {
     private Texture logo;
     private Image logoImg;
     private int scriptId=1;
+    private FriendlyNPC npc;
     private String testString;
     private EventLoader eventLoader;
     public Hud(SpriteBatch sb, PlayScreen screen){
@@ -55,7 +57,9 @@ public class Hud implements Disposable {
         scriptList= json.fromJson(ArrayList.class, Script.class, Gdx.files.internal("scripts/script.json"));
         viewport = new StretchViewport(V_WIDTH, V_HEIGHT,new OrthographicCamera());
         stage = new Stage(viewport,sb);
-        logo =new Texture(Gdx.files.internal("NPC1.png"));
+        dialogLoading();
+        updateDialog();
+        logo =new Texture(Gdx.files.internal("npcs/NPC"+logoId+".png"));
         Table table = new Table();
         table.top();
         table.setFillParent(true);
@@ -76,16 +80,20 @@ public class Hud implements Disposable {
         window.add(text);
         table.add(window).center();
         stage.addActor(table);
-        dialogLoading();
-        updateDialog();
         window.setVisible(false);
 
     }
     public void flipVisibilityDialogWindow(){
-        if(window.isVisible())
+        if(window.isVisible()){
             window.setVisible(false);
-        else
+            if(npc.getLevel()!=2)
+                npc.setLevel(2);
+            screen.setPaused(false);
+        }
+        else{
             window.setVisible(true);
+
+        }
     }
 
     public void loadScript(int scriptId){
@@ -148,22 +156,31 @@ public class Hud implements Disposable {
         }
     }
 
+    public Window getWindow() {
+        return window;
+    }
+
     @Override
     public void dispose() {
+        logo.dispose();
         stage.dispose();
     }
 
-    public void updateDialogWindow(int scriptId) {
+    public void updateDialogWindow(int scriptId, FriendlyNPC npc) {
+        this.npc=npc;
+
         if(!window.isVisible()){
             finished=false;
             tempIterator=0;
             loadScript(scriptId);
             updateDialog();
+            logoId=scripts.get(tempIterator).logo;
+            logo =new Texture(Gdx.files.internal("npcs/NPC"+logoId+".png"));
+            logoImg.setDrawable(new TextureRegionDrawable(logo));
             flipVisibilityDialogWindow();
         }else{
             next=true;
         }
-
 
 
     }

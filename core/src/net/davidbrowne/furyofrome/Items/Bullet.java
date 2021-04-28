@@ -62,9 +62,9 @@ public class Bullet extends Item {
             if(body!=null){
                 setPosition(body.getPosition().x - getWidth() / 2, body.getPosition().y - getHeight() / 2);
                 if(!fireRight)
-                    body.setLinearVelocity(new Vector2(2.3f, 0f));
+                    body.setLinearVelocity(new Vector2(3.5f, 0f));
                 else
-                    body.setLinearVelocity(new Vector2(-2.3f, 0f));
+                    body.setLinearVelocity(new Vector2(-3.5f, 0f));
 
                 if( fireRight&& !isFlipX()){
                     flip(true, false);

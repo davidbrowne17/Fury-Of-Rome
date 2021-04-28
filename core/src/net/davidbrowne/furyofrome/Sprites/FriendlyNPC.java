@@ -26,6 +26,7 @@ public class FriendlyNPC extends Enemy {
     public boolean attacking=false;
     private PlayScreen screen;
     private boolean schedule=false;
+    private int level=1;
     private Fixture fix;
     private int spriteNum;
     private FixtureDef attackdef = new FixtureDef();
@@ -62,7 +63,7 @@ public class FriendlyNPC extends Enemy {
     }
 
     public void update(float dt){
-        scriptId=parseInt(object.getProperties().get(screen.getPlayer().getLevel()+"scriptId").toString());
+        scriptId=parseInt(object.getProperties().get(level+"scriptId").toString());
         stateTime+=dt;
         if(setToDestroy && !destroyed){
             if(!schedule){
@@ -82,9 +83,7 @@ public class FriendlyNPC extends Enemy {
             }
         }
         if(!destroyed){
-            //b2body.setLinearVelocity(velocity);
             setPosition(b2body.getPosition().x- getWidth()/2, b2body.getPosition().y- getHeight()/2);
-
             if(!attacking&&!dead)
                 setRegion( walkAnimation.getKeyFrame(stateTime,true));
 
@@ -134,9 +133,20 @@ public class FriendlyNPC extends Enemy {
 
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     @Override
     public void hitOnHead() {
-        screen.getHud().updateDialogWindow(scriptId);
+        screen.setPaused(true);
+        screen.getPlayer().b2body.setLinearVelocity(0,0);
+        screen.getHud().updateDialogWindow(scriptId,this);
+
     }
 
 }

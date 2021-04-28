@@ -46,6 +46,20 @@ npc1_walk_2
   orig: 16, 16
   offset: 0, 0
   index: -1
+npc2
+  rotate: false
+  xy: 42, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+npc3
+  rotate: false
+  xy: 42, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
 spear
   rotate: false
   xy: 2, 20
@@ -90,14 +104,14 @@ warrior_block_1
   index: -1
 warrior_jump_1
   rotate: false
-  xy: 42, 92
+  xy: 38, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_jump_2
   rotate: false
-  xy: 42, 74
+  xy: 38, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

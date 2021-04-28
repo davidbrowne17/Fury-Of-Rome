@@ -193,6 +193,11 @@
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0010.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0011.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0012.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0014.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0015.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0016.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0017.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0018.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -208,6 +213,7 @@
                 <false/>
             </struct>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0013.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0020.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -222,9 +228,25 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0019.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,8,16,16</rect>
+                <key>scale9Paddings</key>
+                <rect>8,8,16,16</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileList</key>
         <array>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0020.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0001.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0002.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0003.png</filename>
@@ -238,6 +260,12 @@
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0011.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0012.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0013.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0014.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0015.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0016.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0017.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0018.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0019.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

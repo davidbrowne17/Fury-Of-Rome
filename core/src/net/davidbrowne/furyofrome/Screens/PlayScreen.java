@@ -26,6 +26,7 @@ import net.davidbrowne.furyofrome.Sprites.Player;
 import net.davidbrowne.furyofrome.Tools.B2WorldCreator;
 import net.davidbrowne.furyofrome.Tools.Controller;
 import net.davidbrowne.furyofrome.Tools.FixedOrthogonalTiledMapRenderer;
+import net.davidbrowne.furyofrome.Tools.TransitionScreen;
 import net.davidbrowne.furyofrome.Tools.WorldContactListener;
 import net.davidbrowne.furyofrome.Scenes.Hud;
 
@@ -38,6 +39,7 @@ public class PlayScreen implements Screen {
     private OrthographicCamera gamecam;
     private Hud hud;
     private TiledMap map;
+    private Boolean paused=false;
     private FixedOrthogonalTiledMapRenderer renderer;
     private World world;
     private Box2DDebugRenderer b2dr;
@@ -50,10 +52,11 @@ public class PlayScreen implements Screen {
     private LinkedBlockingQueue<ItemDef> itemsToSpawn;
     static final float STEP_TIME = 1f/60f;
     float accumulator = 0;
-    private String level;
+    private int level;
+    private boolean superPause=false;
     private boolean dispose;
 
-    public PlayScreen(Game game, AssetManager manager,String level){
+    public PlayScreen(Game game, AssetManager manager,int level){
         //Gdx.input.setCursorCatched(true);
         prefs = Gdx.app.getPreferences("RomeGamePrefs");
         prefs.flush();
@@ -67,7 +70,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game.batch,this);
         this.level=level;
         TmxMapLoader maploader = new TmxMapLoader();
-        map = maploader.load(("maps/"+level+".tmx"));
+        map = maploader.load(("maps/level"+level+".tmx"));
         renderer = new FixedOrthogonalTiledMapRenderer(map,1/ Game.PPM);
         gamecam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2,0);
         //create  Box2D world setting no gravity in X -80 gravity in Y and allow bodies to sleep
@@ -127,7 +130,7 @@ public class PlayScreen implements Screen {
         itemsToSpawn.clear();
     }
 
-    public String getLevel() {
+    public int getLevel() {
         return level;
     }
 
@@ -147,33 +150,60 @@ public class PlayScreen implements Screen {
             player.jump();
         }
         else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed()) && !player.isAttacking() &&(player.b2body.getLinearVelocity().y==0)){
-            player.b2body.setLinearVelocity(new Vector2(1f, player.b2body.getLinearVelocity().y));
+            player.b2body.setLinearVelocity(new Vector2(1.5f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(true);
         }
         else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2 && !player.isAttacking()&&(player.b2body.getLinearVelocity().y==0)){
-            player.b2body.setLinearVelocity(new Vector2(-1f, player.b2body.getLinearVelocity().y));
+            player.b2body.setLinearVelocity(new Vector2(-1.5f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(false);
         }
-        else if (Gdx.input.isKeyJustPressed(Input.Keys.T)){
-            player.interact();
-        }
+
+
 
     }
 
+    public void handlePause(){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.T)){
+            player.interact();
+        }
+    }
+    public void handleSuperPause(){
+        if((Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))){
+            if(superPause)
+                superPause=false;
+            else
+                superPause=true;
+        }
+    }
+
+    public Boolean getPaused() {
+        return paused;
+    }
+
+    public void setPaused(Boolean paused) {
+        this.paused = paused;
+    }
 
     public void update(float dt){
-        stepWorld();
-        handleInput(dt);
-        handleSpawningItems();
-        for(int i=0;i<items.size;i++)
-            items.get(i).update(dt);
-        for (Enemy enemy : creator.getEnemies())
-            enemy.update(dt);
-        player.update(dt);
-        hud.update(dt);
-        gamecam.update();
-        gamecam.position.x = player.b2body.getPosition().x;
-        renderer.setView(gamecam);
+        if(!superPause) {
+            if (!paused) {
+                handleInput(dt);
+            }
+            stepWorld();
+            handleSpawningItems();
+            for (int i = 0; i < items.size; i++)
+                items.get(i).update(dt);
+            for (Enemy enemy : creator.getEnemies())
+                enemy.update(dt);
+            handlePause();
+            hud.update(dt);
+            player.update(dt);
+            gamecam.update();
+            gamecam.position.x = player.b2body.getPosition().x;
+            renderer.setView(gamecam);
+        }
+        handleSuperPause();
+
     }
 
     @Override
@@ -202,7 +232,7 @@ public class PlayScreen implements Screen {
             hud.stage.draw();
             controller.draw();
             //b2d debug lines
-            b2dr.render(world, gamecam.combined);
+            //b2dr.render(world, gamecam.combined);
             System.out.println("Y "+player.b2body.getPosition().y);
             if (player.b2body.getPosition().y < 0 - (player.getFrame(delta).getTexture().getHeight() / Game.PPM) / 2) {
                 float delay = 0.02f; // seconds
@@ -234,7 +264,9 @@ public class PlayScreen implements Screen {
 
 
     public void finishLevel(){
-        game.music.stop();
+        player.setLevel(player.getLevel()+1);
+        //game.music.stop();
+        game.setScreen(new TransitionScreen(this,new PlayScreen(game,manager,player.getLevel()),game));
     }
     public TiledMap getMap(){
         return map;

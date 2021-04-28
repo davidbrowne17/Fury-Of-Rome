@@ -27,6 +27,8 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 	public static final short BLOCK_BIT = 256*2;
 	public static final short NPC_BIT = 256*4;
 	public static final short INTERACT_BIT = 256*8;
+	public static final short LEVEL_END_BIT = 256*16;
+	public static final short COIN_BIT = 256*32;
 	private GestureDetector gestureDetector;
 	private float volume= 0.5f;
 	private float soundVolume=0.5f;
@@ -52,7 +54,7 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 		//manager.load("audio/sounds/swing.mp3", Sound.class);
 		//manager.load("audio/music/gameover.wav", Music.class);
 		manager.finishLoading();
-		setScreen(new PlayScreen(this,manager,"level1"));
+		setScreen(new PlayScreen(this,manager,1));
 		gestureDetector = new GestureDetector(20, 40, 0.5f, 2, 0.15f, this);
 		Gdx.input.setInputProcessor(gestureDetector);
 

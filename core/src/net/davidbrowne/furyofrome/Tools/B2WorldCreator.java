@@ -16,8 +16,10 @@ import net.davidbrowne.furyofrome.Screens.PlayScreen;
 import net.davidbrowne.furyofrome.Sprites.AttackingEnemy;
 import net.davidbrowne.furyofrome.Sprites.Box;
 import net.davidbrowne.furyofrome.Sprites.Brick;
+import net.davidbrowne.furyofrome.Sprites.Coin;
 import net.davidbrowne.furyofrome.Sprites.Enemy;
 import net.davidbrowne.furyofrome.Sprites.FriendlyNPC;
+import net.davidbrowne.furyofrome.Sprites.LevelEnd;
 import net.davidbrowne.furyofrome.Sprites.Player;
 
 public class B2WorldCreator {
@@ -74,7 +76,16 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
             friendlyNPC.add(new FriendlyNPC (screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM,object));
         }
-
+        //finish level
+        for(MapObject object : screen.getMap().getLayers().get(9).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            new LevelEnd(screen,object,manager);
+        }
+        //coins
+        for(MapObject object : screen.getMap().getLayers().get(10).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject)object).getRectangle();
+            new Coin(screen,object,manager);
+        }
 
 
     }

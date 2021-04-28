@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="37">
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="1" name="background" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzrEJAAAMw7CckP+v7QWdS0EG7W6SAgAAAAAAAAAAAAAAAAA8tnX9BfDNAIIa+aE=
+  </data>
+ </layer>
+ <layer id="2" name="graphics" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0kEKgCAQQNGpVWu7/106Wi1q06JgpCx5Dz4uVBjBCAAAAAAAAAAAAAAAAAAySnIvc+5s3qtRbla4MjasZoYvzN9jQ8Typ6Zt5idr+bbjj799V/20AizlpT0=
+  </data>
+ </layer>
+ <layer id="3" name="object" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzDEBAAAIA6A1sH9bC/ipHwQgAQAAAAAAAAAAAAAAgL16vi5/AABg1kmCAC4=
+  </data>
+ </layer>
+ <objectgroup id="5" name="ground">
+  <object id="27" x="384" y="288" width="496" height="32"/>
+  <object id="28" x="912" y="288" width="208" height="32"/>
+ </objectgroup>
+ <objectgroup id="6" name="box"/>
+ <objectgroup id="7" name="brick">
+  <object id="26" x="368" y="0" width="16" height="320"/>
+ </objectgroup>
+ <objectgroup id="4" name="player">
+  <object id="31" x="432" y="256" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="8" name="AttackingEnemy">
+  <object id="36" x="816" y="256" width="16" height="16">
+   <properties>
+    <property name="spriteNum" type="int" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="FriendlyNPC"/>
+ <objectgroup id="10" name="LevelChange"/>
+ <objectgroup id="11" name="Coin">
+  <object id="32" x="672" y="256" width="16" height="16"/>
+  <object id="33" x="976" y="256" width="16" height="16"/>
+  <object id="34" x="1056" y="256" width="16" height="16"/>
+ </objectgroup>
+</map>

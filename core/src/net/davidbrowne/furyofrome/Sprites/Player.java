@@ -307,6 +307,8 @@ public class Player extends Sprite {
         fdef.filter.maskBits = Game.GROUND_BIT
                 | Game.BRICK_BIT
                 | Game.BOX_BIT
+                | Game.COIN_BIT
+                | Game.LEVEL_END_BIT
                 | Game.ENEMY_BIT;
         fdef.shape = shape;
         shape.dispose();
@@ -319,9 +321,9 @@ public class Player extends Sprite {
         //create line for head collision detection
         EdgeShape head = new EdgeShape();
         if(!isFlipX())
-            head.set(new Vector2(-3/Game.PPM,0 / Game.PPM),new Vector2(9/Game.PPM,0 / Game.PPM));
+            head.set(new Vector2(-4/Game.PPM,0 / Game.PPM),new Vector2(12/Game.PPM,0 / Game.PPM));
         else
-            head.set(new Vector2(-9/Game.PPM,0 / Game.PPM),new Vector2(-3/Game.PPM,0 / Game.PPM));
+            head.set(new Vector2(-12/Game.PPM,0 / Game.PPM),new Vector2(-4/Game.PPM,0 / Game.PPM));
         attackdef.shape = head;
         attackdef.isSensor = false;
         attackdef.density=1;

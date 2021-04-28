@@ -1,27 +1,143 @@
 [
   {
-    "logo": 1,
+    "logo": 3,
     "id": 1,
-    "line": " Roman: Welcome. "
+    "line": " Emperor Titus: Welcome. "
   },
   {
-    "logo": 1,
+    "logo": 3,
     "id": 1,
-    "line": " My name is TEST NAME. "
+    "line": " You must be my newest personal legionary. "
   },
   {
-    "logo": 1,
-    "id": 2,
-    "line": "TEST NAME. "
+    "logo": 3,
+    "id": 1,
+    "line": " I believe your name was Silvius. "
   },
   {
-    "logo": 1,
-    "id": 2,
-    "line": "TEST N "
+    "logo": 3,
+    "id": 1,
+    "line": " I trust that you know who I am? "
   },
   {
-    "logo": 1,
+    "logo": 3,
+    "id": 1,
+    "line": " Of course you do!"
+  },
+  {
+    "logo": 3,
+    "id": 1,
+    "line": " I am your Emperor. "
+  },
+  {
+    "logo": 3,
+    "id": 1,
+    "line": " Every good roman soldier knows me."
+  },
+  {
+  "logo": 3,
+  "id": 1,
+  "line": " Go talk to my adviser Claudius. "
+  },
+  {
+    "logo": 3,
+    "id": 1,
+    "line": " He will give you a task. "
+  },
+  {
+    "logo": 3,
+    "id": 1,
+    "line": " I expect it to be completed quickly! "
+  },
+  {
+    "logo": 3,
     "id": 2,
-    "line": " TEST. "
+    "line": " Emperor Titus: I gave you a task. "
+  },
+  {
+    "logo": 3,
+    "id": 2,
+    "line": " Stop delaying and get it done! "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": " Adviser Claudius: Greetings. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": " The Emperor requires you to travel "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  to the land of Egypt. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  There has been a disturbance there. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  I am sure its nothing... "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  Some peasants are claiming that Anubis "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  has gained access to our world. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  Apparently Egypt is already under his control. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  Some even say he has prophesied the death "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  of our beloved Emperor Titus. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  Travel to Egypt to prove it wrong. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  The journey will be long and dangerous. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  There are barbarians occupying the way there. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  You need to deal with them too. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  You should leave immediately. "
+  },
+  {
+    "logo": 2,
+    "id": 4,
+    "line": " Get going already!!"
   }
+
 ]

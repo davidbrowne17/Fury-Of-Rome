@@ -8,8 +8,10 @@ import net.davidbrowne.furyofrome.Game;
 import net.davidbrowne.furyofrome.Items.Bullet;
 import net.davidbrowne.furyofrome.Items.Item;
 import net.davidbrowne.furyofrome.Sprites.Box;
+import net.davidbrowne.furyofrome.Sprites.Coin;
 import net.davidbrowne.furyofrome.Sprites.Enemy;
 import net.davidbrowne.furyofrome.Sprites.InteractiveTileObject;
+import net.davidbrowne.furyofrome.Sprites.LevelEnd;
 import net.davidbrowne.furyofrome.Sprites.Player;
 
 
@@ -27,14 +29,31 @@ public class WorldContactListener implements ContactListener {
                 ((InteractiveTileObject)object.getUserData()).onHeadHit();
             }
         }
-
+        if(fixA.getUserData()!=null && Coin.class.isAssignableFrom(fixA.getUserData().getClass())){
+            ((Coin)fixA.getUserData()).onHit();
+        }else if(fixB.getUserData()!=null && Coin.class.isAssignableFrom(fixB.getUserData().getClass())){
+            ((Coin)fixB.getUserData()).onHit();
+        }
         enemyCollisions(fixA,fixB,cDef);
         itemCollisions(fixA,fixB,cDef);
         levelEndCollision(fixA,fixB,cDef);
     }
 
     public void levelEndCollision(Fixture fixA, Fixture fixB, int cDef){
-
+        switch(cDef){
+            case Game.LEVEL_END_BIT | Game.PLAYER_BIT:
+                if(fixA.getUserData()!= "head"&&fixB.getUserData()!= "head"){
+                    if(fixA.getFilterData().categoryBits==Game.LEVEL_END_BIT) {
+                        ((LevelEnd)(fixA.getUserData())).onHit();
+                    }
+                    else {
+                        ((LevelEnd)(fixB.getUserData())).onHit();
+                    }
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     public void itemCollisions(Fixture fixA, Fixture fixB, int cDef){
