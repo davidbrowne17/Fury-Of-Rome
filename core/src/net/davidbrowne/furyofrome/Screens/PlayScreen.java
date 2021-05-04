@@ -15,7 +15,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Timer;
-import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import net.davidbrowne.furyofrome.Game;
 import net.davidbrowne.furyofrome.Items.Item;
@@ -66,7 +66,7 @@ public class PlayScreen implements Screen {
         controller = new Controller();
         player=new Player();
         gamecam = new OrthographicCamera();
-        gamePort = new FillViewport(Game.V_WIDTH/ Game.PPM,Game.V_HEIGHT/ Game.PPM,gamecam);
+        gamePort = new StretchViewport(Game.V_WIDTH/ Game.PPM,Game.V_HEIGHT/ Game.PPM,gamecam);
         hud = new Hud(game.batch,this);
         this.level=level;
         TmxMapLoader maploader = new TmxMapLoader();
@@ -149,11 +149,11 @@ public class PlayScreen implements Screen {
         else if((Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || controller.getUpPressed() )&&player.b2body.getLinearVelocity().y==0){
             player.jump();
         }
-        else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed()) && !player.isAttacking() &&(player.b2body.getLinearVelocity().y==0)){
+        else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed()) && !player.isAttacking() &&(player.b2body.getLinearVelocity().y<0.2)){
             player.b2body.setLinearVelocity(new Vector2(1.5f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(true);
         }
-        else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2 && !player.isAttacking()&&(player.b2body.getLinearVelocity().y==0)){
+        else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -2 && !player.isAttacking()&&(player.b2body.getLinearVelocity().y<0.2)){
             player.b2body.setLinearVelocity(new Vector2(-1.5f, player.b2body.getLinearVelocity().y));
             player.setRunningRight(false);
         }
@@ -198,11 +198,12 @@ public class PlayScreen implements Screen {
             handlePause();
             hud.update(dt);
             player.update(dt);
-            gamecam.update();
-            gamecam.position.x = player.b2body.getPosition().x;
-            renderer.setView(gamecam);
+
         }
         handleSuperPause();
+        gamecam.position.x = player.b2body.getPosition().x;
+        gamecam.update();
+        renderer.setView(gamecam);
 
     }
 
@@ -232,8 +233,7 @@ public class PlayScreen implements Screen {
             hud.stage.draw();
             controller.draw();
             //b2d debug lines
-            b2dr.render(world, gamecam.combined);
-            System.out.println("Y "+player.b2body.getPosition().y);
+            //b2dr.render(world, gamecam.combined);
             if (player.b2body.getPosition().y < 0 - (player.getFrame(delta).getTexture().getHeight() / Game.PPM) / 2) {
                 float delay = 0.02f; // seconds
                 Timer.schedule(new Timer.Task() {
@@ -264,9 +264,9 @@ public class PlayScreen implements Screen {
 
 
     public void finishLevel(){
-        player.setLevel(player.getLevel()+1);
+        game.level++;
         //game.music.stop();
-        game.setScreen(new TransitionScreen(this,new PlayScreen(game,manager,player.getLevel()),game));
+        game.setScreen(new TransitionScreen(this,new PlayScreen(game,manager,game.level),game));
     }
     public TiledMap getMap(){
         return map;

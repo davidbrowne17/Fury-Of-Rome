@@ -117,7 +117,7 @@
             <key>basic</key>
             <struct type="AlgorithmBasicSettings">
                 <key>sortBy</key>
-                <enum type="AlgorithmBasicSettings::SortBy">Best</enum>
+                <enum type="AlgorithmBasicSettings::SortBy">Name</enum>
                 <key>order</key>
                 <enum type="AlgorithmBasicSettings::Order">Ascending</enum>
             </struct>
@@ -199,6 +199,10 @@
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0017.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0018.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0021.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0022.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0023.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0024.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0025.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -268,6 +272,10 @@
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0018.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0019.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0021.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0022.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0023.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0024.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0025.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

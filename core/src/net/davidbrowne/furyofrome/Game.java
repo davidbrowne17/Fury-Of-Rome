@@ -12,6 +12,7 @@ import net.davidbrowne.furyofrome.Tools.AdHandler;
 
 public class Game extends com.badlogic.gdx.Game implements GestureDetector.GestureListener {
 	public static SpriteBatch batch;
+	public static int level=1;
 	public static final int V_WIDTH = 350;
 	public static final int V_HEIGHT = 140;
 	public static final float PPM = 100;

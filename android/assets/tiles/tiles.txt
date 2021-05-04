@@ -1,5 +1,5 @@
 tiles.png
-size: 32, 208
+size: 32, 256
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
@@ -89,42 +89,42 @@ tile-0012
   index: -1
 tile-0013
   rotate: false
-  xy: 0, 144
+  xy: 0, 96
   size: 32, 16
   orig: 32, 16
   offset: 0, 0
   index: -1
 tile-0014
   rotate: false
-  xy: 0, 96
+  xy: 0, 112
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tile-0015
   rotate: false
-  xy: 16, 96
+  xy: 16, 112
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tile-0016
   rotate: false
-  xy: 0, 112
+  xy: 0, 128
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tile-0017
   rotate: false
-  xy: 16, 112
+  xy: 16, 128
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tile-0018
   rotate: false
-  xy: 0, 128
+  xy: 0, 144
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -145,7 +145,35 @@ tile-0020
   index: -1
 tile-0021
   rotate: false
-  xy: 16, 128
+  xy: 0, 208
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0022
+  rotate: false
+  xy: 16, 208
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0023
+  rotate: false
+  xy: 0, 224
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0024
+  rotate: false
+  xy: 16, 224
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile-0025
+  rotate: false
+  xy: 0, 240
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

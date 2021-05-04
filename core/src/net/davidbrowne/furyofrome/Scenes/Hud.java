@@ -59,7 +59,7 @@ public class Hud implements Disposable {
         stage = new Stage(viewport,sb);
         dialogLoading();
         updateDialog();
-        logo =new Texture(Gdx.files.internal("npcs/NPC"+logoId+".png"));
+        logo =new Texture(Gdx.files.internal("npcs/npc"+logoId+".png"));
         Table table = new Table();
         table.top();
         table.setFillParent(true);
@@ -72,14 +72,17 @@ public class Hud implements Disposable {
         spikeLabel = new Label(String.format("Spears: %03d", screen.getPlayer().getSpears()), mySkin);
         spikeLabel.setFontScale(1.5f);
         table.add(scoreLabel).center().padTop(100).padRight(200);
-        table.add(spikeLabel).center().padTop(100).padRight(200);
-        table.row();
+        table.add(spikeLabel).center().padTop(100);
+        Table table1 = new Table();
+        table1.top();
+        table1.setFillParent(true);
         logoImg = new Image(logo);
         window2.add(logoImg);
         window.add(window2);
         window.add(text);
-        table.add(window).center();
+        table1.add(window).center().padTop(100);
         stage.addActor(table);
+        stage.addActor(table1);
         window.setVisible(false);
 
     }

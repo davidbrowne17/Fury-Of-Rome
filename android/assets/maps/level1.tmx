@@ -3,12 +3,12 @@
  <tileset firstgid="1" source="tiles.tsx"/>
  <layer id="1" name="background" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt06ERACAQA8FoxPdfLg0gEGEwK7aAEzdJBgAAAAAAAAAAAAAAuLbKfvdAkz/grP2GRwCAVzY8hNnJ
+   eJzt06ERACAQA8Fo1PdfLQ0gEGEwK7aAEzdJBgAAAAAAAAAAAAAAuLbKfvdAkz/grP2GRwCAVzaoIfiN
   </data>
  </layer>
  <layer id="2" name="graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1UsKgzAUQNHYkdKCA/vf/0K6NN/QQYTUGtPBOXAhCJFENKYEAAAAAAAAAADconvrRcABXtH7yzmP6FlhLVCbsx3WlZ7tw87lbPk3QWtr7/O/3RNa8H1AmfNifFmMp+iauZ6bV2rcMAdKnbRbXUofHVsfz71mrfcn/dIMwbnOig==
+   eJzt1UsKgzAUQNHYUUs/UOjP7n8hXVrfoAMRA6k1poNz4KIIkUQ0pgQAAAAAAAAAAFyjW+tJwAr66PnlmHv0qDAXqM3eDnmle/tu4abM+TdBa7n3+d/uCS34PqDMfnB++ByP0Sm6jK7nxpU6zxgDpTZarC6ll9ZtG8+9Zq3XJ/3SGxcczpQ=
   </data>
  </layer>
  <layer id="3" name="object" width="200" height="20">
