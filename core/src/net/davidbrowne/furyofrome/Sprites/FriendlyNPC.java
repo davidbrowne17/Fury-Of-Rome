@@ -49,11 +49,12 @@ public class FriendlyNPC extends Enemy {
             //frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_walk_2"));
         }
         walkAnimation = new Animation(.2f,frames);
+        /*
         frames = new Array<TextureRegion>();
         frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_dead_1"));
         frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_dead_2"));
         frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_dead_3"));
-
+        */
         deadAnimation = new Animation(.2f,frames);
         stateTime= 0;
         setBounds(getX(),getY(),16/ Game.PPM,16/Game.PPM);

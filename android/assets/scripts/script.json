@@ -2,7 +2,7 @@
   {
     "logo": 3,
     "id": 1,
-    "line": " Emperor Titus: Welcome. "
+    "line": " Emperor: Welcome. "
   },
   {
     "logo": 3,
@@ -52,7 +52,7 @@
   {
     "logo": 3,
     "id": 2,
-    "line": " Emperor Titus: I gave you a task. "
+    "line": " Emperor: I gave you a task. "
   },
   {
     "logo": 3,
@@ -107,7 +107,7 @@
   {
     "logo": 2,
     "id": 3,
-    "line": "  of our beloved Emperor Titus. "
+    "line": "  of our beloved Emperor. "
   },
   {
     "logo": 2,
@@ -138,6 +138,31 @@
     "logo": 2,
     "id": 4,
     "line": " Get going already!!"
+  },
+  {
+    "logo": 4,
+    "id": 5,
+    "line": " Scout: You must be the one the Emperor sent."
+  },
+  {
+    "logo": 4,
+    "id": 5,
+    "line": " Turn back now if you value your life."
+  },
+  {
+    "logo": 4,
+    "id": 5,
+    "line": " Anubis has taken over all of Egypt!!!"
+  },
+  {
+    "logo": 4,
+    "id": 5,
+    "line": " The rumours were all true."
+  },
+  {
+    "logo": 4,
+    "id": 6,
+    "line": " Scout: I warned you..."
   }
 
 ]

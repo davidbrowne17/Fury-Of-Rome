@@ -20,7 +20,7 @@ demon_1
   index: -1
 fireball
   rotate: false
-  xy: 363, 2
+  xy: 381, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -41,21 +41,21 @@ fireball3
   index: -1
 flyingdemon
   rotate: false
-  xy: 417, 2
+  xy: 435, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 flyingdemon1
   rotate: false
-  xy: 471, 2
+  xy: 489, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 flyingdemon3
   rotate: false
-  xy: 381, 2
+  xy: 399, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -97,7 +97,7 @@ npc1_walk_1
   index: -1
 npc1_walk_2
   rotate: false
-  xy: 399, 2
+  xy: 417, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -112,6 +112,13 @@ npc2
 npc3
   rotate: false
   xy: 345, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+npc4
+  rotate: false
+  xy: 363, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -160,14 +167,14 @@ warrior_block_1
   index: -1
 warrior_jump_1
   rotate: false
-  xy: 435, 2
+  xy: 453, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_jump_2
   rotate: false
-  xy: 453, 2
+  xy: 471, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
