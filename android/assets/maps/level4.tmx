@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="95">
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="1" name="background" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztziEBAAAIA7ALotA/IxVAYSbm10kaAAAAAAAAAAAAAAAAAOCgFr6PANwNP5Qxfw==
+  </data>
+ </layer>
+ <layer id="2" name="graphics" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt18sOwiAQhWEWPocLjVfe//3EpCaGMMA0XIbm/xIWNg1nRrFQ5wAAAAAAAAAAAAAAAGDBLYz77CKAgV5hvCvvfYTx7FgLgGNjj9XzswvAMLV7rGbf/mrxvytleievVU2+pjfv5NyWmTy31pd7ju4522qey97l12qPs3WcGedKmXv2G94N1pZbm73nS63T3mceKTOXO7pGtHWpvO8afS797jXz/s+Zmy+eK7dOpfUX11+izfzllnqSaix9X9r6NaTsnpklJ+OjZZ1We7ZaV6s+UteP0vPscd6Gtbms9mixj9T1VXr+AAriGuY=
+  </data>
+ </layer>
+ <layer id="3" name="object" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt1MkJwDAMBEB1YPJ2/32aFBB8YFDizDz1WqFFEQAAAAAAAAAAAPA/JTsADCihq7zX7m6e2vVT9wK4+XHf93TD2TlranYA0lzZAQCgowHqwgDD
+  </data>
+ </layer>
+ <objectgroup id="5" name="ground">
+  <object id="36" x="368" y="288" width="272" height="32"/>
+  <object id="39" x="672" y="288" width="272" height="32"/>
+  <object id="71" x="2384" y="288" width="64" height="32"/>
+  <object id="72" x="2480" y="288" width="48" height="32"/>
+  <object id="73" x="2560" y="288" width="640" height="32"/>
+  <object id="91" x="976" y="288" width="576" height="32"/>
+  <object id="92" x="1584" y="288" width="768" height="32"/>
+ </objectgroup>
+ <objectgroup id="6" name="box"/>
+ <objectgroup id="7" name="brick">
+  <object id="19" x="368" y="0" width="16" height="320"/>
+  <object id="50" x="1728" y="272" width="144" height="16"/>
+  <object id="51" x="1744" y="256" width="112" height="16"/>
+  <object id="52" x="1760" y="240" width="80" height="16"/>
+  <object id="53" x="1776" y="224" width="48" height="16"/>
+  <object id="54" x="1792" y="208" width="16" height="16"/>
+  <object id="55" x="1984" y="240" width="16" height="16"/>
+  <object id="56" x="1952" y="256" width="80" height="16"/>
+  <object id="57" x="1936" y="272" width="112" height="16"/>
+  <object id="58" x="1264" y="272" width="128" height="16"/>
+  <object id="59" x="1280" y="256" width="96" height="16"/>
+  <object id="60" x="1296" y="240" width="64" height="16"/>
+  <object id="61" x="1312" y="224" width="32" height="16"/>
+  <object id="62" x="1120" y="240" width="16" height="16"/>
+  <object id="63" x="1104" y="256" width="48" height="16"/>
+  <object id="64" x="1088" y="272" width="80" height="16"/>
+  <object id="65" x="768" y="272" width="80" height="16"/>
+  <object id="66" x="784" y="256" width="48" height="16"/>
+  <object id="67" x="800" y="240" width="16" height="16"/>
+  <object id="84" x="2784" y="0" width="16" height="288"/>
+ </objectgroup>
+ <objectgroup id="4" name="player">
+  <object id="2" x="480" y="240" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="8" name="AttackingEnemy">
+  <object id="35" x="928" y="256" width="16" height="16">
+   <properties>
+    <property name="spriteNum" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="40" x="624" y="256" width="16" height="16">
+   <properties>
+    <property name="spriteNum" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="41" x="1232" y="256" width="16" height="16">
+   <properties>
+    <property name="spriteNum" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="45" x="2144" y="256" width="16" height="16">
+   <properties>
+    <property name="spriteNum" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="46" x="1968" y="224" width="16" height="16">
+   <properties>
+    <property name="spriteNum" type="int" value="6"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="FriendlyNPC">
+  <object id="93" x="2672" y="272" width="16" height="16">
+   <properties>
+    <property name="1scriptId" type="int" value="7"/>
+    <property name="2scriptId" type="int" value="8"/>
+    <property name="spriteNum" type="int" value="7"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="10" name="LevelChange">
+  <object id="85" x="2768" y="272" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="11" name="Coin">
+  <object id="74" x="2592" y="256" width="16" height="16"/>
+  <object id="75" x="2496" y="256" width="16" height="16"/>
+  <object id="76" x="2400" y="256" width="16" height="16"/>
+  <object id="77" x="1984" y="224" width="16" height="16"/>
+  <object id="78" x="1792" y="192" width="16" height="16"/>
+  <object id="79" x="1328" y="208" width="16" height="16"/>
+  <object id="80" x="1312" y="208" width="16" height="16"/>
+  <object id="81" x="1120" y="224" width="16" height="16"/>
+  <object id="82" x="800" y="224" width="16" height="16"/>
+  <object id="83" x="592" y="256" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="12" name="Spears">
+  <object id="94" x="736" y="272" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="13" name="Spike">
+  <object id="47" x="640" y="304" width="32" height="16"/>
+  <object id="48" x="944" y="304" width="32" height="16"/>
+  <object id="68" x="2352" y="304" width="32" height="16"/>
+  <object id="69" x="2448" y="304" width="32" height="16"/>
+  <object id="70" x="2528" y="304" width="32" height="16"/>
+  <object id="90" x="1552" y="304" width="32" height="16"/>
+ </objectgroup>
+ <objectgroup id="14" name="fireball"/>
+ <objectgroup id="15" name="flying enemy">
+  <object id="42" x="1504" y="256" width="16" height="16"/>
+  <object id="43" x="1072" y="256" width="16" height="16"/>
+  <object id="44" x="1632" y="256" width="16" height="16"/>
+  <object id="86" x="2512" y="256" width="16" height="16"/>
+  <object id="88" x="2624" y="256" width="16" height="16"/>
+  <object id="89" x="2320" y="256" width="16" height="16"/>
+ </objectgroup>
+</map>

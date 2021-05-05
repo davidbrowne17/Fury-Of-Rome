@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="32">
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="35">
  <tileset firstgid="1" source="tiles.tsx"/>
  <layer id="1" name="background" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt06ENACEUBcEvKIASoP8mCQVcwgXBEyPGr9leVR0AAAAAAAAAAAAA4MAMaIBE+40R0AGJ/AHfRkAD3GgHXjcC8N8CNE35+A==
+   eJzt06ENACAMAMEKBmCEsv+STEACqaDixPk3PyNiAgAAAAAAAAAAAAAAJdmgATpa4Q84yQYNUDEu/G4E4N0GBQv51g==
   </data>
  </layer>
  <layer id="2" name="graphics" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1bEOgjAUQNFnwsDKICpT1f//Bz/NjpBAjNSKknOSu0AgTckrEQAAAAAAAAAAwDHXb70I+IJLbnjzmVPuXGEtUJuzHZaVnu3XUaXW/Jvgl6VRn5gR2JMU5oN9u724f1+4nmaae2e3alVQV6O/6RDx0LQ270vNtv7mMh8lPQF09m+6
+   eJzt1UEOQ0AYgNGRWHRrQbHSuv8dHK2zpCFCM6i8l3wbQv6MzAgBAAAAAAAAAAAoY9XZQ8ABmli78ZlnrE4wC6TmbIdlVzrb9/yb4KpeXwFT3Sh7hDt6r9zvF653M829s9g1FaSV62/KQhg07RHXJWVnf3PZH7/0AbA9b1o=
   </data>
  </layer>
  <layer id="3" name="object" width="200" height="20">
@@ -23,16 +23,16 @@
  <objectgroup id="7" name="brick">
   <object id="19" x="368" y="0" width="16" height="320"/>
   <object id="25" x="944" y="0" width="16" height="288"/>
-  <object id="28" x="832" y="240" width="16" height="32"/>
-  <object id="29" x="768" y="224" width="64" height="16"/>
-  <object id="30" x="752" y="240" width="16" height="32"/>
+  <object id="32" x="768" y="240" width="64" height="16"/>
+  <object id="33" x="832" y="256" width="16" height="16"/>
+  <object id="34" x="752" y="256" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="4" name="player">
   <object id="2" x="480" y="240" width="16" height="16"/>
  </objectgroup>
  <objectgroup id="8" name="AttackingEnemy"/>
  <objectgroup id="9" name="FriendlyNPC">
-  <object id="4" x="800" y="256" width="16" height="16">
+  <object id="4" x="816" y="256" width="16" height="16">
    <properties>
     <property name="1scriptId" type="int" value="5"/>
     <property name="2scriptId" type="int" value="6"/>

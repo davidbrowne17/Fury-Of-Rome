@@ -57,7 +57,7 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 		//manager.load("audio/sounds/swing.mp3", Sound.class);
 		//manager.load("audio/music/gameover.wav", Music.class);
 		manager.finishLoading();
-		setScreen(new PlayScreen(this,manager,3));
+		setScreen(new PlayScreen(this,manager,4));
 		gestureDetector = new GestureDetector(20, 40, 0.5f, 2, 0.15f, this);
 		Gdx.input.setInputProcessor(gestureDetector);
 

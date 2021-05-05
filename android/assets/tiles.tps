@@ -207,6 +207,8 @@
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0027.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0028.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0029.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0030.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0033.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -223,6 +225,7 @@
             </struct>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0013.png</key>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0020.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0032.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -238,6 +241,7 @@
                 <false/>
             </struct>
             <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0019.png</key>
+            <key type="filename">C:/Users/david/Documents/project rome sprites/tiles/tile-0031.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -284,6 +288,10 @@
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0027.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0028.png</filename>
             <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0029.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0030.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0031.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0032.png</filename>
+            <filename>C:/Users/david/Documents/project rome sprites/tiles/tile-0033.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
