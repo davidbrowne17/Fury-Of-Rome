@@ -149,11 +149,11 @@ public class PlayScreen implements Screen {
         else if((Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || controller.getUpPressed() )&&player.b2body.getLinearVelocity().y==0){
             player.jump();
         }
-        else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed())&& player.b2body.getLinearVelocity().x <= 1.3 && !player.isAttacking()){
+        else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed())&& player.b2body.getLinearVelocity().x <= 1.2 && !player.isAttacking()){
             player.b2body.applyLinearImpulse(new Vector2(0.5f, 0),player.b2body.getWorldCenter(),true);
             player.setRunningRight(true);
         }
-        else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -1.3 && !player.isAttacking()){
+        else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -1.2 && !player.isAttacking()){
             player.b2body.applyLinearImpulse(new Vector2(-0.5f, 0),player.b2body.getWorldCenter(),true);
             player.setRunningRight(false);
         }
