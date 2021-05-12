@@ -293,6 +293,76 @@
     "logo": 8,
     "id": 14,
     "line": " Hermit: Good luck on your adventure. "
+  },
+  {
+    "logo": 1,
+    "id": 15,
+    "line": " Emperor: You found the artifact to save me?  "
+  },
+  {
+    "logo": 1,
+    "id": 15,
+    "line": " Hahaha yes!  "
+  },
+  {
+    "logo": 1,
+    "id": 15,
+    "line": " I was never afraid of Anubis. "
+  },
+  {
+    "logo": 1,
+    "id": 15,
+    "line": " Now go destroy him. Hahaha. "
+  },
+  {
+    "logo": 1,
+    "id": 16,
+    "line": " Emperor: This is a great day. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " Adviser: The Emperor is pleased. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " You have done good work so far. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " You retrieved the gem of Jupiter. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " Jupiter is our god of war. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " But you already knew that, of course. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " Now we stand a chance against Anubis. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " Some of the demons of Anubis have reached Italy. "
+  },
+  {
+    "logo": 2,
+    "id": 17,
+    "line": " Stop them before they desecrate Rome itself. "
+  },
+  {
+    "logo": 2,
+    "id": 18,
+    "line": " Adviser: I wish you luck. We are counting on you. "
   }
 
 ]
