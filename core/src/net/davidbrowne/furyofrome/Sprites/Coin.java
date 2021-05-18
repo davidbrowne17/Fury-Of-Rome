@@ -26,7 +26,7 @@ public class Coin extends InteractiveTileObject {
     public void onHit() {
         setCategoryFilter(Game.DESTROYED_BIT);
         getObjectCell().setTile(null);
-        //manager.get("audio/sounds/coin.wav", Sound.class).play(screen.getGame().getSoundVolume());
+        manager.get("audio/sounds/coin.wav", Sound.class).play(screen.getGame().getSoundVolume());
         screen.getPlayer().addGold(5);
     }
 

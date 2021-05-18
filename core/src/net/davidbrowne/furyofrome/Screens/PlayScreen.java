@@ -58,13 +58,15 @@ public class PlayScreen implements Screen {
 
     public PlayScreen(Game game, AssetManager manager,int level){
         //Gdx.input.setCursorCatched(true);
-        prefs = Gdx.app.getPreferences("RomeGamePrefs");
+        prefs = Gdx.app.getPreferences("FuryOfRomeGamePrefs");
+        prefs.putInteger("level",level);
         prefs.flush();
         atlas = new TextureAtlas("sprites/playerandenemies.atlas");
         this.game=game;
         this.manager=manager;
         controller = new Controller();
         player=new Player();
+        game.level = level;
         gamecam = new OrthographicCamera();
         gamePort = new StretchViewport(Game.V_WIDTH/ Game.PPM,Game.V_HEIGHT/ Game.PPM,gamecam);
         hud = new Hud(game.batch,this);
@@ -163,7 +165,7 @@ public class PlayScreen implements Screen {
     }
 
     public void handlePause(){
-        if (Gdx.input.isKeyJustPressed(Input.Keys.T)){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) | (Gdx.input.justTouched())){
             player.interact();
         }
     }
@@ -240,8 +242,8 @@ public class PlayScreen implements Screen {
                     @Override
                     public void run() {
                         //set game over screen
-                        //game.setScreen(new GameOverScreen(game,manager,level));
-                        //Gdx.input.setCursorCatched(false);
+                        game.setScreen(new GameOverScreen(game,manager,level));
+                        Gdx.input.setCursorCatched(false);
                         dispose=true;
                     }
                 }, delay);
@@ -251,8 +253,8 @@ public class PlayScreen implements Screen {
                     @Override
                     public void run() {
                         //set game over screen
-                        //game.setScreen(new GameOverScreen(game,manager,level));
-                        //Gdx.input.setCursorCatched(false);
+                        game.setScreen(new GameOverScreen(game,manager,level));
+                        Gdx.input.setCursorCatched(false);
                         dispose=true;
                     }
                 }, delay);

@@ -21,7 +21,7 @@ public class Spear extends InteractiveTileObject {
     @Override
     public void onHit() {
         setCategoryFilter(Game.DESTROYED_BIT);
-        //screen.getManager().get("audio/sounds/bop.wav", Sound.class).play(screen.getGame().getSoundVolume());
+        screen.getManager().get("audio/sounds/swing.mp3", Sound.class).play(screen.getGame().getSoundVolume());
         if(!screen.getWorld().isLocked())
             screen.getWorld().destroyBody(fixture.getBody());
         getObjectCell().setTile(null);

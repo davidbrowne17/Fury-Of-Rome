@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import net.davidbrowne.furyofrome.Game;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
+import net.davidbrowne.furyofrome.Sprites.Anubis;
 import net.davidbrowne.furyofrome.Sprites.AttackingEnemy;
 import net.davidbrowne.furyofrome.Sprites.Box;
 import net.davidbrowne.furyofrome.Sprites.Brick;
@@ -32,6 +33,7 @@ public class B2WorldCreator {
     private Array<FriendlyNPC>friendlyNPC;
     private Array<Fireball> fireballs;
     private Array<FlyingEnemy> flyingEnemy;
+    private Array<Anubis> anubis;
     private PlayScreen screen;
 
     public B2WorldCreator(PlayScreen screen){
@@ -114,7 +116,14 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
             flyingEnemy.add(new FlyingEnemy(screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM));
         }
-
+        if(Game.level==14) {
+            //Anubis
+            anubis = new Array<Anubis>();
+            for (MapObject object : map.getLayers().get(15).getObjects().getByType(RectangleMapObject.class)) {
+                Rectangle rect = ((RectangleMapObject) object).getRectangle();
+                anubis.add(new Anubis(screen, rect.getX() / Game.PPM, rect.getY() / Game.PPM,object));
+            }
+        }
 
     }
     public Array<Enemy> getEnemies() {
@@ -123,6 +132,8 @@ public class B2WorldCreator {
             enemies.addAll(friendlyNPC);
             enemies.addAll(fireballs);
             enemies.addAll(flyingEnemy);
+            if(Game.level==14)
+                enemies.addAll(anubis);
         }
         return enemies;
     }

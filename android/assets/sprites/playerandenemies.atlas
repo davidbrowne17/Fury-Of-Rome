@@ -6,49 +6,49 @@ filter: Nearest,Nearest
 repeat: none
 fireball
   rotate: false
-  xy: 56, 38
+  xy: 56, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fireball2
   rotate: false
-  xy: 85, 110
+  xy: 60, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 fireball3
   rotate: false
-  xy: 2, 20
+  xy: 2, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 flyingdemon
   rotate: false
-  xy: 56, 2
+  xy: 110, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 flyingdemon1
   rotate: false
-  xy: 110, 56
+  xy: 92, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 flyingdemon3
   rotate: false
-  xy: 96, 74
+  xy: 42, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1
   rotate: false
-  xy: 56, 56
+  xy: 38, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -62,7 +62,7 @@ npc1_dead_1
   index: -1
 npc1_dead_2
   rotate: false
-  xy: 67, 110
+  xy: 74, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -76,42 +76,42 @@ npc1_dead_3
   index: -1
 npc1_walk_1
   rotate: false
-  xy: 20, 2
+  xy: 38, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc1_walk_2
   rotate: false
-  xy: 38, 38
+  xy: 56, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc2
   rotate: false
-  xy: 78, 74
+  xy: 38, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc3
   rotate: false
-  xy: 96, 92
+  xy: 56, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc4
   rotate: false
-  xy: 38, 20
+  xy: 74, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc5
   rotate: false
-  xy: 38, 2
+  xy: 96, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -125,7 +125,7 @@ npc5_dead_1
   index: -1
 npc5_dead_2
   rotate: false
-  xy: 78, 92
+  xy: 103, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -139,77 +139,105 @@ npc5_dead_3
   index: -1
 npc5_walk_1
   rotate: false
-  xy: 103, 110
+  xy: 20, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc5_walk_2
   rotate: false
-  xy: 20, 20
+  xy: 20, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc6
   rotate: false
-  xy: 2, 2
+  xy: 20, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc6_walk_1
   rotate: false
-  xy: 2, 2
+  xy: 20, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc6_dead_1
   rotate: false
-  xy: 20, 38
+  xy: 38, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc6_dead_2
   rotate: false
-  xy: 38, 56
+  xy: 60, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc6_dead_3
   rotate: false
-  xy: 20, 56
+  xy: 78, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc6_walk_2
   rotate: false
-  xy: 60, 92
+  xy: 2, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc7
   rotate: false
-  xy: 74, 56
+  xy: 56, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 npc8
   rotate: false
-  xy: 56, 20
+  xy: 92, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+npc9
+  rotate: false
+  xy: 96, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+npc9_dead_1
+  rotate: false
+  xy: 20, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+npc9_dead_2
+  rotate: false
+  xy: 78, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+npc9_dead_3
+  rotate: false
+  xy: 67, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 spear
   rotate: false
-  xy: 42, 74
+  xy: 85, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -251,14 +279,14 @@ warrior_block_1
   index: -1
 warrior_jump_1
   rotate: false
-  xy: 74, 38
+  xy: 74, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 warrior_jump_2
   rotate: false
-  xy: 92, 56
+  xy: 74, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -272,7 +300,7 @@ warrior_walk_1
   index: -1
 warrior_walk_2
   rotate: false
-  xy: 60, 74
+  xy: 110, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

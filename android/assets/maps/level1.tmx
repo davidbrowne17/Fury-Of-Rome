@@ -32,7 +32,7 @@
  </objectgroup>
  <objectgroup id="8" name="AttackingEnemy"/>
  <objectgroup id="9" name="FriendlyNPC">
-  <object id="4" x="736" y="240" width="16" height="16">
+  <object id="4" x="736" y="256" width="16" height="16">
    <properties>
     <property name="1scriptId" type="int" value="1"/>
     <property name="2scriptId" type="int" value="2"/>

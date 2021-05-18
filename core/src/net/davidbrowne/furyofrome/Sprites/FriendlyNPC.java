@@ -45,16 +45,9 @@ public class FriendlyNPC extends Enemy {
         frames = new Array<TextureRegion>();
         for(int i=0; i<3;i++){
             frames.add(screen.getAtlas().findRegion("npc"+spriteNum));
-            //frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_walk_1"));
-            //frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_walk_2"));
         }
         walkAnimation = new Animation(.2f,frames);
-        /*
-        frames = new Array<TextureRegion>();
-        frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_dead_1"));
-        frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_dead_2"));
-        frames.add(screen.getAtlas().findRegion("npc"+spriteNum+"_dead_3"));
-        */
+
         deadAnimation = new Animation(.2f,frames);
         stateTime= 0;
         setBounds(getX(),getY(),16/ Game.PPM,16/Game.PPM);
@@ -78,11 +71,11 @@ public class FriendlyNPC extends Enemy {
                 }, 0.3f);
                 if(runningRight)
                     flip(true,false);
-                //screen.getManager().get("audio/sounds/splat.wav", Sound.class).play(screen.getGame().getSoundVolume());
                 stateTime=0;
                 schedule=true;
             }
         }
+        b2body.setLinearVelocity(0,0);
         if(!destroyed){
             setPosition(b2body.getPosition().x- getWidth()/2, b2body.getPosition().y- getHeight()/2);
             if(!attacking&&!dead)
@@ -114,7 +107,7 @@ public class FriendlyNPC extends Enemy {
         shape.setRadius(7/ Game.PPM);
         fdef.filter.categoryBits = Game.NPC_BIT;
         fdef.filter.maskBits = Game.GROUND_BIT
-                | Game.PLAYER_BIT
+                | Game.NPC_DETECTOR_BIT
                 | Game.INTERACT_BIT
                 | Game.ENEMY_BIT;
         fdef.shape = shape;
@@ -131,7 +124,7 @@ public class FriendlyNPC extends Enemy {
 
     @Override
     public void OnHit() {
-
+        screen.getPlayer().setShouldInteract(true);
     }
 
     public int getLevel() {

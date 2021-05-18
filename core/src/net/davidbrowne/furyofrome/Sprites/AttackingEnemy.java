@@ -1,5 +1,6 @@
 package net.davidbrowne.furyofrome.Sprites;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -74,7 +75,8 @@ public class AttackingEnemy extends Enemy {
             }
         }
         if(!destroyed){
-            b2body.setLinearVelocity(velocity);
+            if(b2body.getLinearVelocity().y==0)
+                b2body.setLinearVelocity(velocity);
             setPosition(b2body.getPosition().x- getWidth()/2, b2body.getPosition().y- getHeight()/2);
 
             if(!attacking&&!dead)
@@ -131,11 +133,13 @@ public class AttackingEnemy extends Enemy {
         dead=true;
         setRegion(deadAnimation.getKeyFrame(stateTime, false));
         setToDestroy=true;
+        screen.getManager().get("audio/sounds/splat.wav", Sound.class).play(screen.getGame().getSoundVolume());
     }
 
     @Override
     public void hitOnHead() {
-
+        if(!setToDestroy)
+            screen.getPlayer().die();
     }
 
 }

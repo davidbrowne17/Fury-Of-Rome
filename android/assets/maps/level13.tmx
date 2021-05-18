@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.1" orientation="orthogonal" renderorder="right-down" width="200" height="20" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="34">
+ <tileset firstgid="1" source="tiles.tsx"/>
+ <layer id="1" name="background" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztwwENAAAMw6CKmX+NF3JIWDVVVVVVVVVVVVVVVVVVVVXfP8nuMp8=
+  </data>
+ </layer>
+ <layer id="2" name="graphics" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0zEOg0AMRUGKFNxl73+/lFAgRMIuxt4Z6feWpbcsjNCiD4CXarsBm3Yw4LgNjcB5GxphZlfa0Agz+qUNjTCTf9rQCDO404ZGqKxHGxqhop5taIRKRrShESoY2YZGyOyJNjRCRk+2oREyiWhDI2QQ2YZGyCC6D43Qy8dswNYii/6j1dwX8Tg8Vw==
+  </data>
+ </layer>
+ <layer id="3" name="object" width="200" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6B3sn83Y3w6SEACAAAAAAAAAAAAAAAAwCfTDgAAZy3k5wA0
+  </data>
+ </layer>
+ <objectgroup id="5" name="ground">
+  <object id="31" x="800" y="288" width="480" height="32"/>
+ </objectgroup>
+ <objectgroup id="6" name="box"/>
+ <objectgroup id="7" name="brick">
+  <object id="26" x="1120" y="0" width="16" height="272"/>
+  <object id="27" x="800" y="0" width="16" height="320"/>
+ </objectgroup>
+ <objectgroup id="4" name="player">
+  <object id="29" x="832" y="256" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="8" name="AttackingEnemy"/>
+ <objectgroup id="9" name="FriendlyNPC">
+  <object id="33" x="976" y="256" width="16" height="16">
+   <properties>
+    <property name="1scriptId" type="int" value="25"/>
+    <property name="2scriptId" type="int" value="26"/>
+    <property name="spriteNum" type="int" value="7"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="10" name="LevelChange">
+  <object id="28" x="1120" y="272" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="11" name="Coin"/>
+ <objectgroup id="12" name="Spears"/>
+ <objectgroup id="13" name="Spike"/>
+ <objectgroup id="14" name="fireball"/>
+ <objectgroup id="15" name="flying enemy"/>
+</map>

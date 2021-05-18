@@ -132,6 +132,16 @@
   {
     "logo": 2,
     "id": 3,
+    "line": "  Make sure to gather any gold you find. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
+    "line": "  The empire is poor right now will need the income. "
+  },
+  {
+    "logo": 2,
+    "id": 3,
     "line": "  You should leave immediately. "
   },
   {
@@ -361,8 +371,168 @@
   },
   {
     "logo": 2,
+    "id": 17,
+    "line": " Return to me when this is done. "
+  },
+  {
+    "logo": 2,
     "id": 18,
     "line": " Adviser: I wish you luck. We are counting on you. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " Adviser: You have defeated the demons? "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " This is wonderful. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " Unfortunately the Emperor has fallen ill. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " It is surely the curse of Anubis. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " The only way to save his life is to find a special medicine. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " The problem is that it can only be found high in the Alps. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " The Emperor will likely die before you retrieve it. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " Even so... we must try. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " For the sake of Rome. "
+  },
+  {
+    "logo": 2,
+    "id": 19,
+    "line": " Go to the Alps and retrieve the medicine.  "
+  },
+  {
+    "logo": 2,
+    "id": 20,
+    "line": " Adviser: The Emperor doesn't have much time.  "
+  },
+  {
+    "logo": 7,
+    "id": 21,
+    "line": " Roman Soldier: I scouted ahead for you. "
+  },
+  {
+    "logo": 7,
+    "id": 21,
+    "line": " There are many demons of Anubis. "
+  },
+  {
+    "logo": 7,
+    "id": 21,
+    "line": " There is a cave which probably has the medicine inside it "
+  },
+  {
+    "logo": 7,
+    "id": 21,
+    "line": " I think maybe we should give up... "
+  },
+  {
+    "logo": 7,
+    "id": 22,
+    "line": " Roman Soldier: Its hopeless... "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " Adviser: You retrieved the healing potion? "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " This is incredible. "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " You truly are Rome's best! "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": "  .....  "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " This is why I must ask something of you. "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " It is time for you to go face Anubis. "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " You can defeat him with the artifact of Jupiter. "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " The only problem is the the artifact will also kill you."
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " You must give your life for Rome. "
+  },
+  {
+    "logo": 2,
+    "id": 23,
+    "line": " There is no other way.... "
+  },
+  {
+    "logo": 2,
+    "id": 24,
+    "line": " Adviser: Rome will never forget you. "
+  },
+  {
+    "logo": 7,
+    "id": 25,
+    "line": " Roman Soldier: Anubis is in the Pyramid ahead. "
+  },
+  {
+    "logo": 7,
+    "id": 25,
+    "line": " You are going to save us all. "
+  },
+  {
+    "logo": 7,
+    "id": 25,
+    "line": " Thank you. "
+  },
+  {
+    "logo": 7,
+    "id": 26,
+    "line": " For the glory of Rome.... "
   }
 
 ]

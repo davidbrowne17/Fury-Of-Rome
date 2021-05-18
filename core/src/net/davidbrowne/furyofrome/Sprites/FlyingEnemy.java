@@ -71,6 +71,7 @@ public class FlyingEnemy extends Enemy {
                 | Game.PLAYER_BIT
                 | Game.ATTACK_BIT
                 | Game.GROUND_BIT
+                | Game.BLOCK_BIT
                 | Game.BRICK_BIT
                 | Game.ITEM_BIT
                 | Game.BOX_BIT
@@ -92,7 +93,7 @@ public class FlyingEnemy extends Enemy {
     @Override
     public void OnHit() {
         setToDestroy=true;
-        //screen.getManager().get("audio/sounds/splat.wav", Sound.class).play(screen.getGame().getVolume());
+        screen.getManager().get("audio/sounds/splat.wav", Sound.class).play(screen.getGame().getVolume());
     }
 
     @Override

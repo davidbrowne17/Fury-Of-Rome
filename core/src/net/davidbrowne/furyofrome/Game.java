@@ -3,10 +3,12 @@ package net.davidbrowne.furyofrome;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 
+import net.davidbrowne.furyofrome.Screens.MainMenuScreen;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
 import net.davidbrowne.furyofrome.Tools.AdHandler;
 
@@ -32,6 +34,7 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 	public static final short COIN_BIT = 8192;
 	public static final short SPEAR_BIT = 16384;
 	public static final short SPIKE_BIT = (short) 32768;
+	public static final short NPC_DETECTOR_BIT = (short) 32769;
 	private GestureDetector gestureDetector;
 	private float volume= 0.5f;
 	private float soundVolume=0.5f;
@@ -54,10 +57,13 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 	public void create () {
 		batch = new SpriteBatch();
 		manager = new AssetManager();
-		//manager.load("audio/sounds/swing.mp3", Sound.class);
-		//manager.load("audio/music/gameover.wav", Music.class);
+		manager.load("audio/sounds/click.ogg", Sound.class);
+		manager.load("audio/sounds/splat.wav", Sound.class);
+		manager.load("audio/sounds/coin.wav", Sound.class);
+		manager.load("audio/sounds/swing.mp3", Sound.class);
+		manager.load("audio/music/gameover.wav", Music.class);
 		manager.finishLoading();
-		setScreen(new PlayScreen(this,manager,8));
+		setScreen(new MainMenuScreen(this,manager));
 		gestureDetector = new GestureDetector(20, 40, 0.5f, 2, 0.15f, this);
 		Gdx.input.setInputProcessor(gestureDetector);
 

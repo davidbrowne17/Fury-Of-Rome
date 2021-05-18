@@ -13,7 +13,7 @@
  </layer>
  <layer id="3" name="object" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt0tEJACAIBcAGCKLv9t+zDZIoMOjuT0V4gqUAAAAAAAAAAAAAAACstc0+/8j+gXaYIdp97b6o5g0jO8Al9XD+k54dAAAumgK9AQg=
+   eJzt0tEJACAIBcAGCBqgIdp/uzZIosCguz8V4QmWAgAAAAAAAAAAAAAAsNY2+/wj+wfaYYZo97X7opo39OwAl9TD+U9GdgAAuGgC0A0BJg==
   </data>
  </layer>
  <objectgroup id="5" name="ground">

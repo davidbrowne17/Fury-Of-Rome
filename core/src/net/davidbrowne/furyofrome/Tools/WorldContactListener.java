@@ -10,6 +10,7 @@ import net.davidbrowne.furyofrome.Items.Item;
 import net.davidbrowne.furyofrome.Sprites.Box;
 import net.davidbrowne.furyofrome.Sprites.Coin;
 import net.davidbrowne.furyofrome.Sprites.Enemy;
+import net.davidbrowne.furyofrome.Sprites.FriendlyNPC;
 import net.davidbrowne.furyofrome.Sprites.InteractiveTileObject;
 import net.davidbrowne.furyofrome.Sprites.LevelEnd;
 import net.davidbrowne.furyofrome.Sprites.Player;
@@ -120,9 +121,15 @@ public class WorldContactListener implements ContactListener {
                 break;
             case Game.NPC_BIT | Game.INTERACT_BIT:
                 if(fixA.getFilterData().categoryBits==Game.NPC_BIT)
-                    ((Enemy)(fixA.getUserData())).hitOnHead();
+                    ((FriendlyNPC)(fixA.getUserData())).hitOnHead();
                 else
-                    ((Enemy)(fixB.getUserData())).hitOnHead();
+                    ((FriendlyNPC)(fixB.getUserData())).hitOnHead();
+                break;
+            case Game.NPC_BIT | Game.NPC_DETECTOR_BIT:
+                if(fixA.getFilterData().categoryBits==Game.NPC_BIT)
+                    ((FriendlyNPC)(fixA.getUserData())).OnHit();
+                else
+                    ((FriendlyNPC)(fixB.getUserData())).OnHit();
                 break;
             case Game.ENEMY_BIT | Game.BLOCK_BIT:
             case Game.ENEMY_BIT | Game.BOX_BIT:

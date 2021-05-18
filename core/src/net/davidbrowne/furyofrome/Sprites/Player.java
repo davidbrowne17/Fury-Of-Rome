@@ -1,5 +1,6 @@
 package net.davidbrowne.furyofrome.Sprites;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -16,7 +17,10 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Timer;
 import net.davidbrowne.furyofrome.Game;
 import net.davidbrowne.furyofrome.Items.ItemDef;
+import net.davidbrowne.furyofrome.Screens.EndScreen;
+import net.davidbrowne.furyofrome.Screens.GameOverScreen;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
+import net.davidbrowne.furyofrome.Tools.TransitionScreen;
 
 
 public class Player extends Sprite {
@@ -28,7 +32,7 @@ public class Player extends Sprite {
     private TextureRegion playerStanding;
     private Animation<TextureRegion> playerRun,playerJump,playerStand,playerAttack,playerBlock;
     private float stateTimer;
-    private Boolean runningRight;
+    private Boolean runningRight,shouldInteract=false;
     private int level=1;
     private boolean isDead=false;
     private PlayScreen screen;
@@ -83,6 +87,14 @@ public class Player extends Sprite {
     public Player() {
     }
 
+    public Boolean getShouldInteract() {
+        return shouldInteract;
+    }
+
+    public void setShouldInteract(Boolean shouldInteract) {
+        this.shouldInteract = shouldInteract;
+    }
+
     public int getLevel() {
         return level;
     }
@@ -128,7 +140,7 @@ public class Player extends Sprite {
                     @Override
                     public void run() {
 
-                        while (b2body.getFixtureList().size > 1) {
+                        while (b2body.getFixtureList().size > 4) {
                             b2body.destroyFixture(b2body.getFixtureList().pop());
                         }
                         attacking = false;
@@ -146,6 +158,10 @@ public class Player extends Sprite {
         setPosition(b2body.getPosition().x  - getWidth()/2 ,b2body.getPosition().y - getHeight()/2 );
         setRegion(getFrame(dt));
         b2body.setAwake(true);
+        if(shouldInteract){
+            interact();
+            shouldInteract=false;
+        }
     }
 
     public void fire(){
@@ -240,8 +256,15 @@ public class Player extends Sprite {
                         Game.NPC_BIT |
                         Game.BOX_BIT;
         Fixture fix1 = b2body.createFixture(attackdef);
+        EdgeShape head2 = new EdgeShape();
+        if(!isFlipX())
+            head2.set(new Vector2(-3/Game.PPM,0 / Game.PPM),new Vector2(9/Game.PPM,0 / Game.PPM));
+        else
+            head2.set(new Vector2(-9/Game.PPM,0 / Game.PPM),new Vector2(-3/Game.PPM,0 / Game.PPM));
+        attackdef.shape = head2;
+        fix1 = b2body.createFixture(attackdef);
         fix1.setUserData("attack");
-        //screen.getManager().get("audio/sounds/swing.mp3", Sound.class).play(screen.getGame().getVolume());
+        screen.getManager().get("audio/sounds/swing.mp3", Sound.class).play(screen.getGame().getVolume());
         head.dispose();
         return fix1;
     }
@@ -262,7 +285,7 @@ public class Player extends Sprite {
                 Game.BOX_BIT;
         Fixture fix1 = b2body.createFixture(attackdef);
         fix1.setUserData("attack");
-        //screen.getManager().get("audio/sounds/swing.mp3", Sound.class).play(screen.getGame().getVolume());
+        screen.getManager().get("audio/sounds/swing.mp3", Sound.class).play(screen.getGame().getVolume());
         head.dispose();
         return fix1;
     }
@@ -283,7 +306,7 @@ public class Player extends Sprite {
                     @Override
                     public void run() {
 
-                        while (b2body.getFixtureList().size > 1) {
+                        while (b2body.getFixtureList().size > 4) {
                             b2body.destroyFixture(b2body.getFixtureList().pop());
                         }
                         blocking = false;
@@ -313,9 +336,21 @@ public class Player extends Sprite {
                 | Game.LEVEL_END_BIT
                 | Game.ENEMY_BIT;
         fdef.shape = shape;
-        shape.dispose();
         b2body.createFixture(fdef);
+        defineDetector();
 
+
+    }
+
+    private void defineDetector() {
+        FixtureDef fdef = new FixtureDef();
+        CircleShape shape = new CircleShape();
+        shape.setRadius(8/ Game.PPM);
+        fdef.filter.categoryBits = Game.NPC_DETECTOR_BIT;
+        fdef.filter.maskBits = Game.NPC_BIT;
+        fdef.shape = shape;
+        fdef.isSensor=true;
+        b2body.createFixture(fdef);
     }
 
     public Fixture createInteract(){
@@ -348,7 +383,7 @@ public class Player extends Sprite {
                     @Override
                     public void run() {
 
-                        while (b2body.getFixtureList().size > 1) {
+                        while (b2body.getFixtureList().size > 4) {
                             b2body.destroyFixture(b2body.getFixtureList().pop());
                         }
                         interacting = false;
@@ -370,7 +405,7 @@ public class Player extends Sprite {
     public void die() {
         if (!isDead) {
             //screen.getManager().get("audio/music/music1.wav", Music.class).stop();
-           // screen.getManager().get("audio/sounds/splat.wav", Sound.class).play(screen.getGame().getSoundVolume());
+            screen.getManager().get("audio/sounds/splat.wav", Sound.class).play(screen.getGame().getSoundVolume());
             isDead=true;
             Filter filter = new Filter();
             filter.maskBits = Game.DESTROYED_BIT;
@@ -378,6 +413,7 @@ public class Player extends Sprite {
                 fixture.setFilterData(filter);
             }
             currentState=State.DEAD;
+            screen.getGame().setScreen(new GameOverScreen(screen.getGame(),screen.getManager(),Game.level));
         }
     }
 

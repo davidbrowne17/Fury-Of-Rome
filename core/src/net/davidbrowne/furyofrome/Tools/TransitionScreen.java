@@ -5,11 +5,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import net.davidbrowne.furyofrome.Game;
+import net.davidbrowne.furyofrome.Screens.EndScreen;
 
 public class TransitionScreen implements Screen {
     private Screen currentScreen;
     private Screen nextScreen;
-
+    private boolean whiteScreen;
     private Game game;
 
     // Once this reaches 1.0f the next scene is shown
@@ -22,6 +23,18 @@ public class TransitionScreen implements Screen {
         this.currentScreen = current;
         this.nextScreen = next;
 
+        // I temporarily change the screen to next because if I call render() on it without calling the create() function
+        // there will be crashed caused by using null variables
+        game.setScreen(next);
+        game.setScreen(current);
+        shapeRenderer = new ShapeRenderer();
+        shapeRenderer.setAutoShapeType(true);
+        this.game = game;
+    }
+    public TransitionScreen(Screen current, Screen next, Game game,boolean whiteScreen) {
+        this.currentScreen = current;
+        this.nextScreen = next;
+        this.whiteScreen=whiteScreen;
         // I temporarily change the screen to next because if I call render() on it without calling the create() function
         // there will be crashed caused by using null variables
         game.setScreen(next);
@@ -50,6 +63,8 @@ public class TransitionScreen implements Screen {
         Gdx.gl.glEnable(Gdx.gl.GL_BLEND);
         Gdx.gl.glBlendFunc(Gdx.gl.GL_SRC_ALPHA, Gdx.gl.GL_ONE_MINUS_SRC_ALPHA);
         shapeRenderer.setColor(0, 0, 0, alpha);
+        if(whiteScreen)
+            shapeRenderer.setColor(255, 255, 255, alpha);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         shapeRenderer.end();
