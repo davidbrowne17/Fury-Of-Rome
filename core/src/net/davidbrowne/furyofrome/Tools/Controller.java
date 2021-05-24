@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import net.davidbrowne.furyofrome.Game;
@@ -26,7 +27,7 @@ public class Controller {
 
     public Controller() {
         cam = new OrthographicCamera();
-        viewport = new FillViewport(Game.V_WIDTH,Game.V_HEIGHT,cam);
+        viewport = new StretchViewport(Game.V_WIDTH,Game.V_HEIGHT,cam);
         stage = new Stage(viewport,Game.batch);
         Gdx.input.setInputProcessor(stage);
         Table table = new Table();
@@ -93,15 +94,14 @@ public class Controller {
         });
 
         table.add();
-        table.add(upImg).size(upImg.getWidth(),upImg.getHeight());
-        table.add();
-        table.row().pad(5,5,5,5);
+        table.row().pad(1,1,1,1);
         table.add(leftImg).size(leftImg.getWidth(),leftImg.getHeight());
+        table.add().padLeft(1);
+        table.add(downImg).size(downImg.getWidth(),downImg.getHeight()).padBottom(20);
         table.add();
         table.add(rightImg).size(rightImg.getWidth(),rightImg.getHeight());
         table.row().padBottom(5);
         table.add();
-        //table.add(downImg).size(downImg.getWidth(),downImg.getHeight());
         table.add();
         table.padLeft(70);
         if(Gdx.app.getType() == Application.ApplicationType.Android)
@@ -152,10 +152,14 @@ public class Controller {
         });
         Table table1 = new Table();
         table1.bottom();
-        table1.padLeft(500);
+        table1.padLeft(490);
         table1.add(bImg).size(bImg.getWidth(),bImg.getHeight());
-        table1.add().padLeft(20);
-        table1.add(aImg).size(aImg.getWidth(),aImg.getHeight()).padBottom(20);
+        table1.add().padLeft(5);
+        table1.add(upImg).size(upImg.getWidth(),upImg.getHeight()).padBottom(20);
+        table.add();
+        table.row().pad(5,5,5,5);
+        table1.add().padLeft(5);
+        table1.add(aImg).size(aImg.getWidth(),aImg.getHeight());
         if(Gdx.app.getType() == Application.ApplicationType.Android)
             stage.addActor(table1);
     }

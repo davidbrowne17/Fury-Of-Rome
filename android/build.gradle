@@ -18,7 +18,7 @@ android {
     }
     defaultConfig {
         applicationId "net.davidbrowne.projectrome"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -87,6 +87,10 @@ task run(type: Exec) {
 
     def adb = path + "/platform-tools/adb"
     commandLine "$adb", 'shell', 'am', 'start', '-n', 'net.davidbrowne.projectrome/net.davidbrowne.projectrome.AndroidLauncher'
+}
+
+dependencies {
+    implementation 'com.google.firebase:firebase-ads:19.6.0'
 }
 
 eclipse.project.name = appName + "-android"

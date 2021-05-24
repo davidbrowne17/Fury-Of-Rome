@@ -29,7 +29,7 @@ public class ControlsScreen implements Screen {
     private Viewport viewport;
     private Texture background;
     public Stage stage;
-    private Label label,label1,label2,label3;
+    private Label label,label1,label2,label3,label4;
     private Skin mySkin;
     public ControlsScreen(final Game game, final AssetManager manager){
         this.game=game;
@@ -43,19 +43,22 @@ public class ControlsScreen implements Screen {
         if(Gdx.app.getType()== Application.ApplicationType.Android){
             label = new Label(String.format(" A to attack "), mySkin);
             label1 = new Label(String.format(" B to throw Spear "), mySkin);
-            label2 = new Label(String.format(" Left and Right to move "), mySkin);
-            label3 = new Label(String.format(" Up to jump "), mySkin);
+            label2 = new Label(String.format(" F to block "), mySkin);
+            label3 = new Label(String.format(" Left and Right to move "), mySkin);
+            label4 = new Label(String.format(" Up to jump "), mySkin);
         }
         else{
             label = new Label(String.format(" W to attack "), mySkin);
-            label1 = new Label(String.format(" E to throw Axe "), mySkin);
-            label2 = new Label(String.format(" A and D to move "), mySkin);
-            label3 = new Label(String.format(" Space to jump "), mySkin);
+            label1 = new Label(String.format(" E to throw Spear "), mySkin);
+            label2 = new Label(String.format(" F to block "), mySkin);
+            label3 = new Label(String.format(" A and D to move "), mySkin);
+            label4 = new Label(String.format(" Space to jump "), mySkin);
         }
         label.setFontScale(3.6f);
         label1.setFontScale(3.6f);
         label2.setFontScale(3.6f);
         label3.setFontScale(3.6f);
+        label4.setFontScale(3.6f);
         window.add(label);
         window.row();
         window.add(label1);
@@ -63,6 +66,8 @@ public class ControlsScreen implements Screen {
         window.add(label2);
         window.row();
         window.add(label3);
+        window.row();
+        window.add(label4);
         Table table = new Table();
         table.top();
         table.setFillParent(true);

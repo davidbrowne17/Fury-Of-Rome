@@ -34,6 +34,8 @@ public class EndScreen implements Screen {
     public EndScreen(final Game game, final AssetManager manager){
         this.game=game;
         this.manager=manager;
+        Gdx.input.setCursorCatched(false);
+        game.music.stop();
         mySkin = new Skin(Gdx.files.internal("skin/pixthulhu-ui.json"));
         viewport = new StretchViewport(V_WIDTH,V_HEIGHT,new OrthographicCamera());
         Gdx.input.setInputProcessor(stage);
@@ -57,9 +59,9 @@ public class EndScreen implements Screen {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                //game.setScreen(new MainMenuScreen(game, manager));
+                game.setScreen(new MainMenuScreen(game, manager));
                 dispose();
-                //manager.get("audio/sounds/click.wav", Sound.class).play(game.getSoundVolume());
+                manager.get("audio/sounds/click.ogg", Sound.class).play(game.getSoundVolume());
                 return true;
             }
         });

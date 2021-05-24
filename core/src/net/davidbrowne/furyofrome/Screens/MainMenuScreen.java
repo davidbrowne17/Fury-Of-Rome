@@ -86,7 +86,7 @@ public class MainMenuScreen implements Screen {
 
                 }
                 else{
-                   Dialog dialog = new Dialog("", mySkin) {
+                   final Dialog dialog = new Dialog("", mySkin) {
                        @Override
                        protected void result(Object object) {
                            if ((Boolean) object) {
@@ -94,9 +94,9 @@ public class MainMenuScreen implements Screen {
                                game.setScreen(new TransitionScreen(game.getScreen(),new PlayScreen(game,manager,1),game));
                                manager.get("audio/sounds/click.ogg", Sound.class).play(game.getSoundVolume());
                                dispose();
-                           }else{
-                               //rejected
-                               //do nothing
+                           }
+                           else{
+                              this.setVisible(false);
                            }
                        }
                    };
@@ -149,6 +149,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 manager.get("audio/sounds/click.ogg", Sound.class).play(game.getSoundVolume());
+                dispose();
                 Gdx.app.exit();
                 return true;
             }
@@ -164,14 +165,14 @@ public class MainMenuScreen implements Screen {
         table.row();
         table.add(button4).center().padTop(25).expandX();
         stage.addActor(table);
-/*
-        game.music = manager.get("audio/music/music1.wav", Music.class);
+
+        game.music = manager.get("audio/music/music1.mp3", Music.class);
         if(game.getVolume()!=0){
             game.music.setLooping(true);
             game.music.setVolume(game.getVolume());
             game.music.play();
         }
-*/
+
     }
     @Override
     public void show() {

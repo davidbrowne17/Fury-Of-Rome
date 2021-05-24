@@ -178,7 +178,7 @@ public class Hud implements Disposable {
             loadScript(scriptId);
             updateDialog();
             logoId=scripts.get(tempIterator).logo;
-            logo =new Texture(Gdx.files.internal("npcs/NPC"+logoId+".png"));
+            logo =new Texture(Gdx.files.internal("npcs/npc"+logoId+".png"));
             logoImg.setDrawable(new TextureRegionDrawable(logo));
             flipVisibilityDialogWindow();
         }else{

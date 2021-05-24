@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -57,7 +58,7 @@ public class PlayScreen implements Screen {
     private boolean dispose;
 
     public PlayScreen(Game game, AssetManager manager,int level){
-        //Gdx.input.setCursorCatched(true);
+        Gdx.input.setCursorCatched(true);
         prefs = Gdx.app.getPreferences("FuryOfRomeGamePrefs");
         prefs.putInteger("level",level);
         prefs.flush();
@@ -81,13 +82,14 @@ public class PlayScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
         creator =new B2WorldCreator(this);
         world.setContactListener(new WorldContactListener());
-        /*game.music = manager.get("audio/music/music2.wav",Music.class);
+        game.music.stop();
+        game.music = manager.get("audio/music/music2.mp3", Music.class);
         if(game.getVolume()!=0){
             game.music.setLooping(true);
             game.music.setVolume(game.getVolume());
             game.music.play();
         }
-        */
+
         items = new Array<Item>();
         itemsToSpawn = new LinkedBlockingQueue<ItemDef>();
         game.resetInputProcessor();
@@ -142,7 +144,7 @@ public class PlayScreen implements Screen {
         if((controller.getaPressed() || Gdx.input.isKeyJustPressed(Input.Keys.W)) && !player.isAttacking()){
             player.attack();
         }
-        else if((controller.getaPressed() || Gdx.input.isKeyJustPressed(Input.Keys.F)) && !player.isBlocking()){
+        else if((controller.getDownPressed() || Gdx.input.isKeyJustPressed(Input.Keys.F)) && !player.isBlocking()){
             player.block();
         }
         else if ((controller.getbPressed()|| Gdx.input.isKeyJustPressed(Input.Keys.E)) && ((!player.isAttacking())&&(player.isCanFire()))){
@@ -152,15 +154,13 @@ public class PlayScreen implements Screen {
             player.jump();
         }
         else if ((Gdx.input.isKeyPressed(Input.Keys.D)|| controller.getRightPressed())&& player.b2body.getLinearVelocity().x <= 1.2 && !player.isAttacking()){
-            player.b2body.applyLinearImpulse(new Vector2(0.5f, 0),player.b2body.getWorldCenter(),true);
+            player.b2body.applyLinearImpulse(new Vector2(0.2f, 0),player.b2body.getWorldCenter(),true);
             player.setRunningRight(true);
         }
         else if ((controller.getLeftPressed()|| Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -1.2 && !player.isAttacking()){
-            player.b2body.applyLinearImpulse(new Vector2(-0.5f, 0),player.b2body.getWorldCenter(),true);
+            player.b2body.applyLinearImpulse(new Vector2(-0.2f, 0),player.b2body.getWorldCenter(),true);
             player.setRunningRight(false);
         }
-
-
 
     }
 
@@ -267,7 +267,7 @@ public class PlayScreen implements Screen {
 
     public void finishLevel(){
         game.level++;
-        //game.music.stop();
+        game.music.stop();
         game.setScreen(new TransitionScreen(this,new PlayScreen(game,manager,game.level),game));
     }
     public TiledMap getMap(){

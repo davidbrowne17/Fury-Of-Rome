@@ -116,7 +116,7 @@ public class B2WorldCreator {
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
             flyingEnemy.add(new FlyingEnemy(screen,rect.getX()/Game.PPM,rect.getY()/Game.PPM));
         }
-        if(Game.level==14) {
+        if(Game.level==16) {
             //Anubis
             anubis = new Array<Anubis>();
             for (MapObject object : map.getLayers().get(15).getObjects().getByType(RectangleMapObject.class)) {
@@ -132,7 +132,7 @@ public class B2WorldCreator {
             enemies.addAll(friendlyNPC);
             enemies.addAll(fireballs);
             enemies.addAll(flyingEnemy);
-            if(Game.level==14)
+            if(Game.level==16)
                 enemies.addAll(anubis);
         }
         return enemies;

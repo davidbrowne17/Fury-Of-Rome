@@ -36,7 +36,8 @@ public class GameOverScreen implements Screen {
         this.game=game;
         this.manager=manager;
         this.level=level;
-       // game.music.stop();
+        game.music.stop();
+        Gdx.input.setCursorCatched(false);
         background=new Texture(Gdx.files.internal("background.png"));
         mySkin = new Skin(Gdx.files.internal("skin/pixthulhu-ui.json"));
         viewport = new StretchViewport(V_WIDTH,V_HEIGHT,new OrthographicCamera());

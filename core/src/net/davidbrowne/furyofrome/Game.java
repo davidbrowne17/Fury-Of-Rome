@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 
+import net.davidbrowne.furyofrome.Screens.IntroScreen;
 import net.davidbrowne.furyofrome.Screens.MainMenuScreen;
 import net.davidbrowne.furyofrome.Screens.PlayScreen;
 import net.davidbrowne.furyofrome.Tools.AdHandler;
@@ -62,8 +63,10 @@ public class Game extends com.badlogic.gdx.Game implements GestureDetector.Gestu
 		manager.load("audio/sounds/coin.wav", Sound.class);
 		manager.load("audio/sounds/swing.mp3", Sound.class);
 		manager.load("audio/music/gameover.wav", Music.class);
+		manager.load("audio/music/music1.mp3", Music.class);
+		manager.load("audio/music/music2.mp3", Music.class);
 		manager.finishLoading();
-		setScreen(new MainMenuScreen(this,manager));
+		setScreen(new IntroScreen(this,manager));
 		gestureDetector = new GestureDetector(20, 40, 0.5f, 2, 0.15f, this);
 		Gdx.input.setInputProcessor(gestureDetector);
 
